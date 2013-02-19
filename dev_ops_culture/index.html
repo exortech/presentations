@@ -29,6 +29,10 @@
 		<!--[if lt IE 9]>
 		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; }
+		</style>
 	</head>
 
 	<body>
@@ -92,6 +96,57 @@
 					<section>
 						<img src="img/devs-dont-know-ops.png" height="250px"/>
 						<p>Devs don't understand production</p>
+					</section>
+					<section>
+						<img src="img/dilbert-mordac.png" height="250px"/>
+						<p>Ops don't understand the system</p>
+					</section>
+					<section>
+						<img src="img/goal-goldratt.png" />
+						<p>"Tell me how you measure me and I will tell you how I will behave" - Eli Goldratt</p>
+					</section>
+					<section>
+						<img src="img/jobs-ipad-duct-tape.png" />
+						<p>Devs measured on features</p>
+					</section>
+					<section>
+						<img src="img/viagra.png" />
+						<p>Ops measured on uptime</p>
+					</section>
+					<section>
+						<img src="img/dilbert-quantum-computer.png" height="250px" />
+						<p>Nothing destabilizes production like a new release</p>
+					</section>
+					<section>
+						<img src="img/itil.png" height="300px" />
+						<p>ITIL</p>
+					</section>
+					<section>
+						<img src="img/sox.png" />
+						<p>SOX</p>
+					</section>
+					<section>
+						<img src="img/virtualization.png" height="250px" />
+						<p>State of the (dis)union</p>
+					</section>
+					<section>
+						<img src="img/chaos-monkey.png" />
+						<p>We are all monkeys</p>
+						<p><small>We'll come back to this</small></p>
+					</section>
+					<section>
+						<img src="img/wall-of-confusion.png" height="300px" />
+						<p>Tear down the wall</p>
+					</section>
+					<section>
+						<img src="img/dilbert.png" height="300px" />
+						<img src="img/devops-heart.png" height="300px" /><img>
+						<img src="img/dogbert.png" height="300px" />
+						<p>Bring back the love</p>
+					</section>
+					<section>
+						<img src="img/richard-simmons.png" height="350px" />
+						<p>Bring back the agility</p>
 					</section>
 				</section>
 
@@ -405,6 +460,7 @@ function linkify( selector ) {
 				progress: true,
 				history: true,
 				center: true,
+				rollingLinks: false,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: 'linear', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
