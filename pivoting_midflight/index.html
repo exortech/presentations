@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Pivoting Midflight: An Experience Report</title>
+
+		<meta name="description" content="Pivoting Midflight: An Experience Report">
+		<meta name="author" content="R. Owen Rogers">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+<!--		<script>
+			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+-->
+		<!--[if lt IE 9]>
+		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; background-color: white; }
+
+			body { 
+				background-size: 100%;
+			}
+			.title-slide body {
+				background: url("img/birds_in_the_sky.jpg") no-repeat center center fixed;
+				background-size: 100%;
+			}
+			.title-slide section {
+				background-color: rgba(255,255,255,0.8);
+				background-size: 100%;
+			}
+			.intro-slide body {
+				background:url("img/bird_relaxed_flying_lt.jpg") no-repeat center fixed;
+				background-size: 100%;
+			}
+			
+			.starting-slide body {
+				background:url("img/blue_sky_with_bird.png") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.storm-clouds-slide body {
+				background:url("img/storm_clouds.jpg") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.storm-clouds-slide h2, .storm-clouds-slide p, .storm-clouds-slide blockquote {
+				color: lightblue;
+				background-size: 100%;
+			}
+			.revelations-slide body {
+				background:url("img/Beautiful_sky_at_LUMC.jpg") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.revelations-slide h2, .revelations-slide p, .revelations-slide blockquote {
+				color: white;
+				background-size: 100%;
+			}
+			.pivot-slide body {
+				background:url("img/sky_clouds_bird.png") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.approach-slide body {
+				background:url("img/flying-bird-at-sunset.png") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.implications-slide body {
+				background:url("img/Bird_flying_at_sunset.png") no-repeat center fixed;
+				background-size: 100%;
+			}
+			.results-slide body {
+				background:url("img/rainbow.png") no-repeat center fixed;
+				background-size: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-state="title-slide">
+					<h1>Pivoting Midflight</h1>
+					<h2>An Experience Report</h2>
+					<h3>Agile India 2013</h3>
+					<p>
+						<small><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></small>
+					</p>
+					<p><small>
+						<a href="https://github.com/exortech/presentations">https://github.com/exortech/presentations</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-state="intro-slide">
+						<h2>Who am I?</h2>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/owen-faro.jpg" />
+						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
+						<p>Product Lead @ <a href="http://www.pulseenergy.com">Pulse Energy</a>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/xp-explained-cover.png" height="400px" />
+						<p>Practicing Agile/XP since 2000</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/thoughtworks-logo.gif" height="150px" />
+						<p>Formerly an agile coach with ThoughtWorks</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/agile-india.png" />
+						<p>Conference organizer for original Agile India conference</p>
+					</section>
+					<section data-state="intro-slide">
+						<h2>What do we do?</h2>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/pulse-energy-logo.png" height="150px"/>
+						<p>Energy Management Software</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/power-lines.jpg" height="300px"/>
+						<p>Energy Utilities</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/576-seymour.png" height="400px"/>
+						<p>Commercial buildings</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/smart-meter.png" height="400px"/>
+						<p>Smart meter data</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/warehouse.png" height="400px"/>
+						<p>Archive and aggregate</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/analyze.png" height="400px"/>
+						<p>Analyze</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/report.png" height="400px"/>
+						<p>Measure and verify savings</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/management.png" height="400px"/>
+						<p>Identify anomalies</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/dashboard.png" height="400px"/>
+						<p>Educate occupants and the public</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/power-plant.png" height="400px"/>
+						<p>Make the world a better place</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/gas.png" height="250px"/>
+						<img src="../common/img/steam.png" height="250px"/>
+						<img src="../common/img/water.png" height="250px"/>
+						<p>Not just electricity...</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/walk-the-talk.png" height="400px"/>
+						<p>Walk the talk</p>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<h2>Personal story</h2>
+					</section>					
+					<section data-state="starting-slide">
+						<img src="img/calendar.jpg" height="400px" />
+						<p>1.5 years ago (Mid 2011)</p>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/kudos.png" height="300px" />
+						<p>Things were going well</p>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/company.png" height="400px" />
+						<p>(More than) Doubling every year</p>
+					</section>
+					<section data-state="starting-slide">
+						<blockquote>There is no question that Pulse Energy’s people and technology have led to the early success of this program.</blockquote>
+						<p><small>- Bev Van Ruyven, Deputy CEO of BC Hydro</small></p>
+						<p>Happy customers</p>
+						<p><small>(Extremely low churn)</small></p>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/team.png" height="400px" />
+						<p>Solid team</p>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/jira.png" height="400px" />
+						<p>Shipping new features to customers every week</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="storm-clouds-slide">
+						<h2>Storm clouds on the horizon</h2>
+					</section>
+					<section data-state="storm-clouds-slide">
+						<p>Approaching market saturation</h2>
+					</section>
+					<section data-state="storm-clouds-slide">
+						<p>Struggling to break into new markets</h2>
+					</section>
+					<section data-state="storm-clouds-slide">
+						<p>Supported by a false economy</h2>
+					</section>
+					<section data-state="storm-clouds-slide">
+						<p>Not leading to a sustainable business model</h2>
+					</section>
+					<section data-state="storm-clouds-slide">
+						<blockquote>Deliver energy efficiency to 1,000,000 commercial buildings</blockquote>
+						<p>Failing to reach company vision</h2>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="revelations-slide">
+						<h2>Revelations</h2>
+					</section>
+					<section data-state="revelations-slide">
+						<p>1. Our customers were not who we thought they were</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Started 2011 focused on large commercial customers</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>6 months later the strategy was regarded as a failure</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Acquiring new clients was too expensive</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>No strong perceived need</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Those with need already had solutions</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>No allocated budget</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Energy utilities had a need</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Limited experience selling to them directly</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>2. Utilities had different needs</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Already had solutions for large commercial customers</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Looking for way to address SME market</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>We had limited experience with SMEs</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>3. Commitments to existing customers</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Team was already stretched</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>No budget for hiring new staff</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>We had limited experience with SME</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Needed recurring revenue</p>
+					</section>
+					<section data-state="revelations-slide">
+						<p>Reputation with existing customers was key to winning deals</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="pivot-slide">
+						<h2>We needed to pivot</h2>
+					</section>
+					<section data-state="pivot-slide">
+						<img src="img/lean-startup-cover.jpg" height="400px" />
+						<blockquote>A pivot is a structured change designed to test a new fundamental hypothesis about the product, business model and engine of growth</h2>
+					</section>
+					<section data-state="pivot-slide">
+						<h2>Original Strategy:</h2>
+						<blockquote>Assist large commercial customers in managing their energy use and tracking their energy savings</blockquote>
+					</section>
+					<section data-state="pivot-slide">
+						<h2>New Strategy:</h2>
+						<blockquote>Deliver energy efficiency programs to a utility's full commercial customer base</blockquote>
+					</section>
+					<section data-state="pivot-slide">
+						<h3>New customer:</h2>
+						<p>Large commercial accounts &rarr; Energy utilities</p>
+					</section>
+					<section data-state="pivot-slide">
+						<h3>New end user:</h2>
+						<p>Energy managers &rarr; Small and large business operators</p>
+					</section>
+					<section data-state="pivot-slide">
+						<h3>New product:</h2>
+						<p>Tool for Energy managers &rarr; Utility pilots and programs</p>
+					</section>
+					<section data-state="pivot-slide">
+						<h3>IOW: A big change</h2>
+						<p>"Bet-the-company initiative"</p>
+					</section>
+
+					<section data-state="pivot-slide">
+						<img src="img/lean-startup-cover.jpg" height="400px" />
+						<blockquote>A pivot requires that we keep one foot rooted in what we've learned so far, while making a fundamental change in strategy to seek even greater validated learning</h2>
+					</section>
+
+					<section data-state="pivot-slide">
+						<h3>Roots</h3>
+						<ul>
+							<li>established domain expertise</li>
+							<li>product as platform</li>
+							<li>brand and reputation</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="approach-slide">
+						<h2>Approach</h2>
+					</section>
+					<section data-state="approach-slide">
+						<img src="img/tiger.jpg" height="300px" />
+						<p>Assemble cross-functional Tiger Team</p>
+					</section>
+					<section data-state="approach-slide">
+						<h3>Objectives</h3>
+						<ol>
+							<li>Reorient sales team to sell to utilities</li>
+							<li>Refocus marketing team to research North American utility market</li>
+							<li>Repurpose product to present to utility prospects</li>
+						</ul>
+					</section>					
+					<section data-state="approach-slide">
+						<h3>Successes</h3>
+						<ol>
+							<li>Sales team shifted quickly to start adding utility prospects to the pipeline</li>
+							<li>Marketing built knowledge base of North American market</li>
+							<li>Rebuilt web site to target utilities</li>
+						</ul>
+					</section>
+					<section data-state="approach-slide">
+						<h3>Problems</h3>
+						<ol>
+							<li>Not dedicated team</li>
+							<li>New hire to lead the team</li>
+							<li>Team was too large</li>
+							<li>Other significant product initiatives underway</li>
+							<li>Tremendous pressure to deliver quickly</li>
+							<li>3 months of churn</li>
+							<li>Attrition</li>
+						</ul>
+					</section>
+					<section data-state="approach-slide">
+						<h3>Right approach</h3>
+						<p><small>Not the best execution</small></p>
+					</section>
+					<section data-state="approach-slide">
+						<h3>Rebuild or Repurpose?</h3>
+					</section>
+					<section data-state="approach-slide">
+						<p>Rest of the company couldn't understand why this was a big deal</p>
+					</section>
+					<section data-state="approach-slide">
+						<p>Crushed by the support burden</p>
+					</section>
+					<section data-state="approach-slide">
+						<p>Assumption that SMEs needed a reduced-feature version of existing product</p>
+						<p><small>(Patently false, but we all hoped it was true)</small></p>
+					</section>
+					<section data-state="approach-slide">
+						<p>Analysis paralysis</p>
+					</section>
+					<section data-state="approach-slide">
+						<p>3 months trying to bolt on to existing product</p>
+					</section>
+					<section data-state="approach-slide">
+						<img src="img/lean-startup-cover.jpg" height="400px" />
+						<blockquote>A pivot is a new strategic hypothesis that will require a <em>new MVP</em> to test</blockquote>
+					</section>
+					<section data-state="approach-slide">
+						<p>Got traction once we decided to build a new product (Nov 2011)</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="implications-slide">
+						<h2>Implications</h2>
+					</section>
+					<section data-state="implications-slide">
+						<p>1. Long sales cycle</p>
+					</section>
+					<section data-state="implications-slide">
+						<img src="img/runway.jpg" height="300px" />
+						<p>Extend the runway</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Cut headcount by 40%</p>
+						<p>3 rounds of layoffs</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Some roles were no longer necessary</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Attrition in senior positions</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>2. Split between market research and user research</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Build user research into product management</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Layoffs created enough room to hire some new roles</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Trying to hire and train at same time as changing direction is hard</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>3. New product, new opportunities</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Formed dedicated product team</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Wanted to do things differently, but how?</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Defer commitment on technology decisions</p>
+					</section>
+					<section data-state="implications-slide">
+						<p>Iterate on MVP</p>
+					</section>
+
+					<section data-state="implications-slide">
+						<img src="img/pivot_cartoon.gif" height="500px" />
+						<p>Pivot: Frequently used by early stage startups</p>
+					</section>
+					<section data-state="implications-slide">
+						<img src="img/pivot_overused.png" />
+						<p>Ranked 2nd most overused startup word of 2012</p>
+					</section>
+					<section data-state="implications-slide">
+						<img src="img/sad_clown.jpg" height="400px" />
+						<p>What about existing customers?</p>
+					</section>
+					<section data-state="implications-slide">
+						<img src="img/pain.jpg" height="400px" />
+						<p>Painful process</p>
+					</section>
+					<section data-state="implications-slide">
+						<img src="img/no-pivot.png" height="300px" />
+						<p>Now a banned word at my company</p>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="results-slide">
+						<h2>Results</h2>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/pge_overview.png" height="500px" />
+						<p>First RFP Response (Dec 2011)</p>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/bg_screenshot.png" height="500px" />
+						<p>First significant opportunity (Feb 2012)</p>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/utilico-homepage.png" height="500px" />
+						<p>10 demos to prospect customers (Apr 2012)</p>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/landing-home.png" height="500px" />
+						<p>Rolled out first pilot (Aug 2012)</p>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/bg_dashboard.png" height="500px" />
+						<p>Closed first major deal (Dec 2012)</p>
+						<p>50,000 SMEs - multi-million $ deal</p>
+					</section>
+					<section data-state="results-slide">
+						<h2>Pivot: In Retrospect</h2>
+					</section>
+					<section data-state="results-slide">
+						<p>Was it the right thing to do?</p>
+						<p>Yes, absolutely</p>
+					</section>
+					<section data-state="results-slide">
+						<p>Success was not inevitable</p>
+					</section>
+					<section data-state="results-slide">
+						<p>No one said it would be easy</p>
+						<p>No one said it would be this painful either</p>
+					</section>
+					<section data-state="results-slide">
+						<p>(Incidentally) We did another pivot in November 2012</p>
+						<p><small>We didn't call it a pivot</small></p>
+					</section>
+					<section data-state="results-slide">
+						<p>Channel pivot</p>
+					</section>
+					<section data-state="results-slide">
+						<blockquote>We are no longer building a web application. We're building paper energy reports</blockquote>
+						<p><small>(we didn't know anything about print)</small></p>
+					</section>
+					<section data-state="results-slide">
+						<p>Team immediately switched</p>
+					</section>
+					<section data-state="results-slide">
+						<img src="img/welcome-report.png" height="500px" />
+						<p>Sold to first customer in end-December 2012</p>
+						<p>Sending energy reports to 15,000 SMB customers in May 2013</p>
+					</section>
+					<section>
+						<h3>Lessons learned</h3>
+						<ul>
+							<li>Assemble dedicated team</li>
+							<li>Start with a new MVP (treat existing product as a platform)</li>
+							<li>Top-down and bottom-up</li>
+							<li>Don't under-estimate time it takes to change direction</li>
+							<li>Easier the second time</li>
+							<li>Limit the scope if possible</li>
+							<li>Pivot earlier rather than later</li>
+					</section>
+				</section>
+				<section>
+					<h2>Thanks!</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
