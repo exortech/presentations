@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Designing MVPs for Enterprise Customers</title>
+
+		<meta name="description" content="Designing MVPs for Enterprise Customers">
+		<meta name="author" content="R. Owen Rogers">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+<!--		<script>
+			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+-->
+		<!--[if lt IE 9]>
+		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; background-color: white; }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Designing MVPs for Enterprise Customers</h1>
+					<p>
+						<small><a href="http://exortech.com/blog">Owen Rogers</a> | <a href="http://twitter.com/exortech">@exortech</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Hi!</h2>
+					</section>
+					<section>
+						<img src="../common/img/owen-faro.jpg" />
+						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
+						<p><a href="http://www.pulseeenergy.com/">Pulse Energy</a> / <a href="http://twitter.com/pulseenergy">@pulseenergy</a></p>
+					</section>
+					<section>
+						<img src="../common/img/agile-india.png" />
+						<p>Original Agile India conference organizer</p>
+					</section>
+					<section>
+						<h2>What do I do?</h2>
+					</section>
+					<section>
+						<h3>Product lead</h3>
+					</section>
+					<section>
+						<img src="../common/img/pulse-energy-logo.png" height="150px"/>
+						<p>Energy Management Software</p>
+					</section>
+					<section>
+						<img src="../common/img/power-lines.jpg" height="300px"/>
+						<p>Energy Utilities</p>
+					</section>
+					<section>
+						<img src="../common/img/576-seymour.png" height="400px"/>
+						<p>Commercial buildings</p>
+					</section>
+					<section>
+						<img src="../common/img/smart-meter.png" height="400px"/>
+						<p>Smart meter data</p>
+					</section>
+					<section>
+						<img src="../common/img/warehouse.png" height="400px"/>
+						<p>Archive and aggregate</p>
+					</section>
+					<section>
+						<img src="../common/img/analyze.png" height="400px"/>
+						<p>Analyze</p>
+					</section>
+					<section>
+						<img src="../common/img/report.png" height="400px"/>
+						<p>Measure and verify savings</p>
+					</section>
+					<section>
+						<img src="../common/img/management.png" height="400px"/>
+						<p>Identify anomalies</p>
+					</section>
+					<section>
+						<img src="../common/img/dashboard.png" height="400px"/>
+						<p>Educate occupants and the public</p>
+					</section>
+					<section>
+						<img src="../common/img/power-plant.png" height="400px"/>
+						<p>Make the world a better place</p>
+					</section>
+					<section>
+						<img src="../common/img/gas.png" height="250px"/>
+						<img src="../common/img/steam.png" height="250px"/>
+						<img src="../common/img/water.png" height="250px"/>
+						<p>Not just electricity...</p>
+					</section>
+					<section>
+						<img src="../common/img/walk-the-talk.png" height="400px"/>
+						<p>Walk the talk</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="img/straws.jpg" />
+						<h2>Poll</h2>
+					</section>
+					<section>
+						<h2>The Context</h2>
+					</section>
+					<section>
+						<img src="img/earthquake.jpg" height="500px" />
+						<p>Product development landscape has shifted</p>
+					</section>
+					<section>
+						<img src="img/bottleneck.jpg" height="400px" />
+						<p>Development is no longer the constraint</p>
+					</section>
+					<section>
+						<img src="img/risk.jpg" />
+						<p>Biggest risk is no longer: Can we build it?</p>
+					</section>
+					<section>
+						<img src="img/distinctiondemotivator.jpg" />
+						<p>It is: Will anyone care?</p>
+					</section>
+					<section>
+						<img src="img/marketplace.jpg" />
+						<p>Marketplace is flooded with great products</p>
+					</section>
+					<section>
+						<img src="img/nobody-cares.jpg" height="400px" />
+						<p>That nobody uses</p>
+					</section>
+					<section>
+						<img src="img/cmyk-is-the-new-black.jpg" height="300px" />
+						<p>Product design is the new black</p>
+					</section>
+					<section>
+						<img src="img/design-thinking.jpg" height="400px" />
+						<p>Design thinking</p>
+					</section>
+					<section>
+						<img src="img/rubiks-cube.jpg" height="300px" />
+						<p>Building software is a constrained problem</p>					
+					</section>
+					<section>
+						<img src="img/open-door.jpg" height="300px" />
+						<p>Designing a product is wide open</p>					
+					</section>
+					<section>
+						<img src="img/gradient-descent.png" />
+						<p>Explore the design space as quickly as possible</p>					
+					</section>
+					<section>
+						<img src="img/tackle.jpg" />
+						<p>Tackle this risk directly</p>
+					</section>
+					<section>
+						<img src="img/MVP-Medal.jpg" />
+						<p>Minimal Viable Product (MVP)</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What is an MVP?</h2>
+					</section>
+
+					<section>
+						<img src="img/lean-startup-cover.jpg" height="400px" />
+						<blockquote>An MVP helps entrepreneurs start the process of <strong>learning</strong> as quickly as possible</blockquote>					
+					</section>
+
+					<section>
+						<img src="img/groupon-logo.png" height="250px" style="border: none; box-shadow: none" />
+						<p>Groupon Wordpress blog</p>
+					</section>
+					<section>
+						<img src="img/dropbox-video.png" height="400px" />
+						<p>Dropbox video</p>
+					</section>
+					<section>
+						<img src="img/pulsecheck-landing.png" height="400px" />
+						<p>Landing page</p>
+					</section>
+					<section>
+						<img src="img/tower-of-books.jpg" height="400px" />
+						<p>Examples mainly from the consumer product space</p>
+					</section>
+					<section>
+						<img src="img/handshake.jpg" height="400px" />
+						<p>Selling to enterprises is different</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>B2C vs B2B</h2>
+					</section>
+					<section>
+						<h3>Deal size</h3>
+						<ul>
+							<li>B2C: $ - $,$$$</li>
+							<li>B2B: $,$$$ - $,$$$,$$$</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Sales process</h3>
+						<ul>
+							<li>B2C: self-service</li>
+							<li>B2B: sales representatives</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Risks</h3>
+						<ul>
+							<li>B2C: low</li>
+							<li>B2B: high</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Decision maker</h3>
+						<ul>
+							<li>B2C: buyer and consumer are usually the same person</li>
+							<li>B2B: buyer and consumer are usually different people</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Decision-making process</h3>
+						<ul>
+							<li>B2C: consumer research</li>
+							<li>B2B: Request for Proposal (RFP)</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What does an Enterprise MVP look like?</h2>
+					</section>
+
+					<section>
+						<img src="img/table-stakes.jpg" height="400px" />
+						<p>Table stakes: what's needed to start learning process?</p>
+					</section>
+
+					<section>
+						<img src="img/pulsecheck-landing.png" height="400px" />
+						<p>More than a landing page</p>
+					</section>
+
+					<section>
+						<img src="img/anil-kumble.jpg" height="400px" />
+						<p>Step 1: The Pitch</p>
+					</section>
+
+					<section>
+						<h3>The Pitch</h3>
+						<ol>
+							<li>Product vision</li>
+							<li>Sales collateral</li>
+							<li>Trained sales staff</li>
+						</ol>
+					</section>
+
+					<section>
+						<img src="img/compass.png" height="400px" style="background-color: white" />
+						<p>Goal: validate product concept</p>
+					</section>
+
+					<section>
+						<img src="img/stage.jpg" height="400px" />
+						<p>Step 2: The Demo</p>
+					</section>
+
+					<section>
+						<img src="img/limited-access.gif" height="400px" />
+						<p>Step 3: Limited-access account</p>
+					</section>
+
+					<section>
+						<img src="img/deal-or-no-deal.jpg" height="400px" />
+						<p>Goal: close the deal</p>
+					</section>
+
+					<section>
+						<img src="img/catch22.jpg" height="300px" />
+						<p>Problem: MVP without a product</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Enterprise MVP: Approach</h2>
+						<p>A 5 step program</p>
+					</section>
+
+					<section>
+						<p>1. Start with <strong>fixed, known constraints</strong></p>
+					</section>
+					<section>
+						<p>2. <strong>Defer commitment</strong> on everything else</p>
+					</section>
+					<section>
+						<p>3. <strong>Leverage</strong> external products and services wherever possible</p>
+					</section>
+					<section>
+						<p>4. Start simple and <strong>iterate quickly</strong></p>
+					</section>
+					<section>
+						<p>5. Focus on telling a <strong>compelling story</strong></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Enterprise MVP: Example</h2>
+					</section>
+
+					<section>
+						<img src="img/hello-world.gif" height="300px" />
+						<p><strong>Fixed constraint</strong>: Our product is a web application</p>
+						<small>(for us, even this turned out to be invalid)</small>
+					</section>
+
+					<section>
+						<img src="img/ftw-hat.jpg" height="300px" />
+						<p>Foundation: Static, single page web application (SPA)</p>
+					</section>
+					<section>
+						<img src="img/html-logo.png" height="100px" />
+						<img src="img/css-logo.jpg" height="100px" />
+						<img src="img/javascript-logo.png" height="100px" />
+						<p>Tools: HTML, CSS + Javascript</p>
+					</section>
+
+					<section>
+						<img src="img/rails-logo.png" height="100px" />
+						<img src="img/nodejs-logo.png" height="100px" />
+						<img src="img/django-logo.png" height="80px" style="padding: 10px" />
+						<p><strong>Defer commitment</strong>: No back-end required</p>
+						<small>(3 months, 30+ demos without back-end)</small>
+					</section>
+
+					<section>
+						<img src="img/mysql-logo.jpg" height="150px" />
+						<img src="img/redis-logo.png" height="110px" style="padding: 20px" />
+						<img src="img/cassandra-logo.jpg" height="150px" />
+						<p><strong>Defer commitment</strong>: Hard-coded data</p>
+					</section>
+
+					<section>
+						<img src="img/knockout-logo.png" height="100px" />
+						<img src="img/bootstrap-logo.png" height="100px" />
+						<p><strong>Leverage</strong>: Web application frameworks</p>
+					</section>
+
+					<section>
+						<img src="img/aws.png" height="150px" />
+						<p><strong>Leverage</strong>: Hosting</p>
+					</section>
+
+					<section>
+						<img src="img/google-maps-logo.jpg" height="150px" />
+						<img src="img/twitter-logo.jpg" height="150px" />
+						<p><strong>Leverage</strong>: Web services</p>
+					</section>
+
+					<section>
+						<img src="img/continuous-deployment-shirt.jpg" height="300px" />
+						<p><strong>Iterate quickly</strong>: Continuous Deployment</p>
+					</section>
+					<section>
+						<img src="img/cross-functional-team.jpg" height="300px" />
+						<p><strong>Iterate quickly</strong>: Cross-functional teams</p>
+					</section>
+					<section>
+						<img src="img/customer-feedback.jpg" height="400px" />
+						<p><strong>Iterate quickly</strong>: Direct feedback</p>
+					</section>
+
+					<section>
+						<img src="img/journey.jpg" height="400px" />
+						<p><strong>Compelling story</strong>: User journey</p>
+						<small>(like user stories only better)</small>
+					</section>
+					<section>
+						<img src="img/persona.png" height="300px" />
+						<p>Personas that really work</p>
+					</section>
+					<section>
+						<img src="img/interaction.png" height="200px" />
+						<p>Focus on workflow - not features</p>
+					</section>
+
+					<section>
+						<img src="img/optical-illusion.jpg" height="400px" />
+						<p>Static site illusion</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="img/demo-d.jpg" height="300px" />
+						<p>Demo-driven development&trade;</p>
+						<small>(reclaiming the term)</small>
+					</section>
+
+					<section>
+						<img src="img/indian-passport.jpg" height="300px" style="padding:15px; background-color: white" />
+						<p>Demonstrability is a first-class concern</p>
+					</section>
+
+					<section>
+						<img src="img/bolt.jpg" height="300px" />
+						<p>Not bolted on later</p>
+					</section>
+
+					<section>
+						<img src="img/reset-button.jpg" height="300px" />
+						<p>Resetability</p>
+					</section>
+
+					<section>
+						<img src="img/soa.jpg" height="400px" />
+						<p>Service orientation</p>
+					</section>
+
+					<section>
+						<img src="img/user-centered-design.jpg" height="400px" />
+						<p>User focused design</p>
+					</section>
+
+					<section>
+						<img src="img/speedometer.jpg" height="300px" />
+						<p>Focus on speed</p>
+					</section>
+
+					<section>
+						<img src="img/bo.png" height="400px" />
+						<p>Polyglot (growth mindset)</p>
+					</section>
+					<section>
+						<img src="img/T-shaped.jpg" height="400px" />
+						<p>T-shaped people</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Enterprise MVPs: Key Value Hypotheses</h2>
+					</section>
+					<section>
+						<ol>
+							<li>Will customers buy our product?
+								<br/><small>(Purchase assumption)</small>
+							</li>
+							<li>Will users find the product to be valuable?
+								<br/><small>(Value assumption)</small>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Purchase assumption</h3>
+						<ul>
+							<li>More immediate</li>
+							<li>Simpler</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Value assumption</h3>
+						<ul>
+							<li>Ultimately more important</li>
+							<li>Harder</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/rose-colored-glasses.jpg" />
+						<p>Customer perception of user value != Real user value</p>
+					</section>
+					<section>
+						<img src="img/user_testing.jpg" height="300px" />
+						<p>Simultaneous user testing</p>
+					</section>
+					<section>
+						<img src="img/paper-airplane.jpg" height="300px" />
+						<p>Small pilots</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Summary</h2>
+					</section>
+					<section>
+						<p>Test both Purchase and Value assumption</p>
+					</section>
+					<section>
+						<p>Follow the 5 steps to designing an Enterprise MVP</p>
+					</section>
+					<section>
+						<ol>
+							<li>Start with <strong>fixed, known constraints</strong></li>
+							<li><strong>Defer commitment</strong> on everything else</li>
+							<li><strong>Leverage</strong> external products and services wherever possible</li>
+							<li>Start simple and <strong>iterate quickly</strong></li>
+							<li>Focus on telling a <strong>compelling story</strong></li>
+					</section>
+				</section>
+				<section>
+					<h2>Thanks!</h2>
+					<p><a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a></p>
+				</section>
+			</div>
+		</div>
+
+		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

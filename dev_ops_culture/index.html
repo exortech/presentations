@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cultivating a DevOps Culture</title>
+
+		<meta name="description" content="Cultivating a DevOps Culture">
+		<meta name="author" content="R. Owen Rogers">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+<!--		<script>
+			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+-->
+		<!--[if lt IE 9]>
+		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1>Cultivating a DevOps Culture</h1>
+					<h3>Agile India 2013</h3>
+					<p>
+						<small><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></small>
+					</p>
+					<p><small><a href="https://github.com/exortech/presentations">https://github.com/exortech/presentations</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Hi!</h2>
+					</section>
+
+					<section>
+						<img src="../common/img/owen-faro.jpg" />
+						<p><a href="http://twitter.com/exortech">@exortech</a> | Product Lead</p>					
+					</section>
+					<section>
+						<img src="../common/img/pulse-energy-logo.png" height="150px" />
+						<p><a href="http://www.pulseenergy.com/">http://www.pulseenergy.com</a> | <a href="http://twitter.com/pulseenergy">@pulseenergy</a></p>		
+					</section>
+					<section>
+						<img src="img/borat.jpg" />
+						<p>Yes, we do devops</p>		
+					</section>
+					<section>
+						<img src="img/devops-dilbert.png" />
+						<p>Disclaimer: More Dev than Ops</p>
+					</section>
+					<section>
+						<img src="img/virtualization-dilbert.png" height="250px" />
+						<p>Virtualization will solve the energy crisis</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is DevOps?</h2>
+					</section>
+					<section>
+						<img src="img/golden-gate-bridge.png" height="450px" />
+						<p>Building bridges</p>
+						<div style="position: relative; top: -410px; color: brown; font-weight: bold">DEV</div>
+						<div style="position: relative; top: -200px; color: brown; font-weight: bold">OPS</div>
+					</section>
+					<section>
+						<img src="img/demons-of-stupidity.png" height="300px"/>
+						<p>So, what's the problem?</p>
+					</section>
+					<section>
+						<img src="img/devs-dont-know-ops.png" height="250px"/>
+						<p>Devs don't understand production</p>
+					</section>
+					<section>
+						<img src="img/dilbert-mordac.png" height="250px"/>
+						<p>Ops don't understand the system</p>
+					</section>
+					<section>
+						<img src="img/goal-goldratt.png" />
+						<p>"Tell me how you measure me and I will tell you how I will behave" - Eli Goldratt</p>
+					</section>
+					<section>
+						<img src="img/jobs-ipad-duct-tape.png" />
+						<p>Devs measured on features</p>
+					</section>
+					<section>
+						<img src="img/viagra.png" />
+						<p>Ops measured on uptime</p>
+					</section>
+					<section>
+						<img src="img/dilbert-quantum-computer.png" height="250px" />
+						<p>Nothing destabilizes production like a new release</p>
+					</section>
+					<section>
+						<img src="img/itil.png" height="300px" />
+						<p>ITIL</p>
+					</section>
+					<section>
+						<img src="img/sox.png" />
+						<p>SOX</p>
+					</section>
+					<section>
+						<img src="img/virtualization.png" height="250px" />
+						<p>State of the (dis)union</p>
+					</section>
+					<section>
+						<img src="img/chaos-monkey.png" />
+						<p>We are all monkeys</p>
+						<p><small>We'll come back to this</small></p>
+					</section>
+					<section>
+						<img src="img/wall-of-confusion.png" height="300px" />
+						<p>Tear down the wall</p>
+					</section>
+					<section>
+						<img src="img/dilbert.png" height="300px" />
+						<img src="img/devops-heart.png" height="300px" /><img>
+						<img src="img/dogbert.png" height="300px" />
+						<p>Bring back the love</p>
+					</section>
+					<section>
+						<img src="img/richard-simmons.png" height="350px" />
+						<p>Bring back the agility</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Why DevOps?</h2>
+					</section>
+					<section>
+						<h2>3 reasons</h2>
+					</section>
+					<section>
+						<img src="img/cheetah.png" />
+						<p>1) Move faster than the competition</p>
+					</section>
+					<section>
+						<img src="img/indy-on-the-moon.png" height="400px" />
+						<p>2) Technology as a business driver</p>
+					</section>
+					<section>
+						<img src="img/sink.png" height="400px" />
+						<p>3) You want to know how things really work in production</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Where does DevOps come from?</h2>
+					</section>
+					<section>
+						<h2>3 main drivers:</h2>
+					</section>
+					<section>
+						<img src="img/weboperations-cover.png" height="400px" />
+						<p>1) WebOps</p>
+					</section>
+					<section>
+						<div>
+							<img src="img/facebook-logo.png" height="100px" />
+							<img src="img/amazon-logo.png" height="100px" />
+							<img src="img/twitter-logo.png" height="100px" />
+						</div>
+						<div>
+							<img src="img/netflix-logo.png" height="100px" />
+							<img src="img/flickr-logo.png" height="100px" />
+							<img src="img/etsy-logo.png" height="100px" />
+						</div>
+						<p>10+ deploys per day (at scale)</p>
+					</section>
+					<section>
+						<img src="img/traditional-vs-devops.png" height="400px" />
+						<p>2) Cloud/Managed Hosting</p>
+					</section>
+					<section>
+						<img src="../common/img/xp-explained-cover.png" height="400px" />
+						<img src="img/lean-cover.png" height="400px" />
+						<p>3) Agile/Lean</p>
+					</section>
+					<section>
+						<img src="img/jira.png" height="400px" />
+						<p>Frequent releases</p>
+					</section>
+					<section>
+						<img src="img/value-stream.png" height="400px" />
+						<p>Extend the value stream</p>
+					</section>
+					<section>
+						<img src="img/test-driven-infrastructure-cover.png" height="400px" />
+						<p>Test-driven infrastructure</p>
+					</section>
+					<section>
+						<img src="img/continuous-delivery.png" height="400px" />
+						<p>Jez needs a new ride</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>How to introduce DevOps?</h2>
+					</section>
+					<section>
+						<img src="img/ymmv.png" height="400px" />
+						<p>Our experience</p>
+					</section>
+					<section>
+						<h2>5 principles</h2>
+						<ul>
+							<li>Accountability</li>
+							<li>Transparency</li>
+							<li>Consistency</li>
+							<li>Redundancy</li>
+							<li>Leverage</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Accountability</h2>
+					</section>
+					<section>
+						<img src="img/marines.png" />
+						<p>Devs do deploys</p>
+					</section>
+					<section>
+						<img src="img/huggable_plush_killer_robots.jpg" height="400px" />
+						<p>Fully automated deployment</p>
+					</section>
+					<section>
+						<img src="img/telephone.jpg" height="400px" />
+						<p>Daily support rotation</p>
+					</section>
+					<section>
+						<img src="img/bo.png" height="400px" />
+						<p>Polyglot (growth mindset)</p>
+					</section>
+					<section>
+						<img src="img/pingdom.png" />
+						<p>Uptime is everyone's responsibility</p>
+					</section>
+					<section>
+						<img src="img/zero-downtime.png" height="300px" />
+						<p>Zero-downtime deployment</p>
+					</section>
+					<section>
+						<img src="img/passpack-logo.png" />
+						<p>Password management</p>
+					</section>
+					<section>
+						<img src="img/sudo.png" />
+						<p>Shell access</p>
+					</section>
+					<section>
+						<img src="img/thumbs-up.png" height="400px" style="background-color: white" />
+						<p>Measure user value</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Transparency</h2>
+					</section>
+					<section>
+						<img src="img/statusboard.png" height="400px" />					
+						<p>Statusboard</p>
+					</section>
+					<section>
+						<img src="img/ganglia-logo.png" height="100px" />					
+						<img src="img/scout-logo.png" height="100px" />					
+						<img src="img/monit-logo.gif" height="100px" />					
+						<p>System monitoring</p>
+					</section>
+					<section>
+						<img src="img/ganglia.png" height="400px" />					
+						<p>Ganglia</p>
+					</section>
+					<section>
+						<img src="img/scout-screen.png" height="400px" />					
+						<p>Scout</p>
+					</section>
+					<section>
+						<img src="img/graphite.png" height="400px" />					
+						<p>StatsD + Graphite</p>
+					</section>
+					<section>
+						<img src="img/pingdom-logo.png" height="150px" />					
+						<p>Site monitoring</p>
+					</section>
+					<section>
+						<img src="img/logmaster.png" height="100px" />					
+						<img src="img/airbrake-logo.png" height="100px" />					
+						<p>Error notification</p>
+					</section>
+					<section>
+						<img src="img/airbrake.png" />					
+						<p>Airbrake</p>
+					</section>
+					<section>
+						<img src="img/google-analytics.png" height="100px" />					
+						<img src="img/kissmetrics-logo.png" height="100px" />					
+						<img src="img/mixpanel-logo.png" height="100px" />					
+						<p>User tracking</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Consistency</h2>
+					</section>
+					<section>
+						<img src="img/consistency.png" height="400px" />					
+						<p>Test reflects production</p>
+					</section>
+					<section> 
+						<img src="img/chef-code.png" height="400px" />					
+						<p>Configuration is code</p>
+					</section>
+					<section>
+						<img src="img/octocat.png" height="400px" style="background-color: white" />					
+						<p>Keep under source control</p>
+					</section>
+					<section>
+						<img src="img/chef-logo.png" height="150px" style="padding: 10px; margin-right: 20px; background-color: white" />					
+						<img src="img/puppet-logo.png" height="150px" style="padding: 10px; margin-right: 20px; background-color: white" />					
+						<p>Automated provisioning</p>
+					</section>
+					<section>
+						<img src="img/puppet-logo.png" height="150px" style="padding: 10px; margin-right: 20px; background-color: white" />					
+						<ul>
+							<li>Declarative configuration</li>
+							<li>Ruby-based DSL</li>
+							<li>Push and pull</li>
+							<li>Large install base</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/chef-logo.png" height="150px" style="padding: 10px; margin-right: 20px; background-color: white" />					
+						<ul>
+							<li>Pure Ruby</li>
+							<li>Execution order</li>
+							<li>Better cloud support</li>
+							<li>More momentum</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/teamcity-logo.png" height="150px" />					
+						<p>Infrastructure builds</p>
+					</section>
+					<section>
+						<img src="img/capistrano.png" height="200px" />					
+						<p>Remote administration</p>
+					</section>
+					<section>
+						<img src="img/truthiness.png" height="400px" />					
+						<p>Use production data</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Redundancy</h2>
+					</section>
+					<section>
+						<img src="img/pager.png" height="300px" />					
+						<p>Support responsibility</p>
+					</section>
+					<section>
+						<img src="img/rack.png" height="400px" />					
+						<p>Server redundancy</p>
+					</section>
+					<section>
+						<img src="img/zero-downtime.png" height="400px" style="padding: 10px; background-color: white" />					
+						<p>Zero-downtime deploys</p>
+					</section>
+					<section>
+						<img src="img/replication.png" height="400px" style="padding: 10px; background-color: white" />					
+						<p>Database replication</p>
+					</section>
+					<section>
+						<img src="img/competition-map.png" height="400px" />					
+						<p>Zero-downtime data centre migration</p>
+					</section>
+					<section>
+						<img src="img/queue_line_2.jpg" height="400px" />					
+						<p>Queues</p>
+					</section>
+					<section>
+						<img src="img/circuit-breaker.png" height="400px" />					
+						<p>Circuit breakers</p>
+					</section>
+					<section>
+						<img src="img/feature-toggle.png" height="450px" />					
+						<p>Feature toggles</p>
+					</section>
+					<section>
+						<img src="img/chaos-monkey.png" height="400px" />					
+						<p>The Netflix Chaos Monkey</p>
+						<small>(told you we'd come back to this)</small>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Leverage</h2>
+					</section>					
+					<section>
+						<img src="img/incompetence.png" height="400px" />					
+						<p>Focus on core competencies</p>
+					</section>
+					<section>
+						<img src="img/rackspace-logo.png" height="150px" />					
+						<img src="img/onx.png" height="90px" style="background-color: white; padding: 30px" />					
+						<p>Managed hosting</p>
+					</section>
+					<section>
+						<img src="img/aws.png" height="150px" />					
+						<p>Cloud computing &amp; storage</p>
+					</section>
+					<section>
+						<img src="img/dnsimple-logo.png" />					
+						<p>Managed DNS</p>
+					</section>
+					<section>
+						<img src="img/octocat.png" height="300px" style="background-color: white" />					
+						<p>Source control</p>
+					</section>
+					<section>
+						<img src="img/postmark-logo.png" height="150px" />					
+						<p>Email</p>
+					</section>
+					<section>
+						<img src="img/get-satisfaction-logo.png" height="80px" style="background-color: white; padding: 10px" />
+						<img src="img/uservoice-logo.png" height="100px" />
+						<br/>					
+						<img src="img/salesforce-logo.png" height="200px" />					
+						<p>Customer engagement</p>
+					</section>
+					<section>
+						<img src="img/opscode-logo.png" height="150px" />					
+						<p>Hosted provisioning services</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>In summary</h2>
+					</section>
+					<section>
+						<img src="img/golden-gate-bridge.png" height="450px" />
+						<p>Building bridges</p>
+						<div style="position: relative; top: -410px; color: brown; font-weight: bold">DEV</div>
+						<div style="position: relative; top: -200px; color: brown; font-weight: bold">OPS</div>
+					</section>
+					<section>
+						<img src="img/collaboration.png" height="400px" />					
+						<p>Shared accountability</p>
+					</section>
+					<section>
+						<img src="img/saran-wrap.png" height="150px" />					
+						<p>Transparency</p>
+					</section>
+					<section>
+						<img src="img/lemmings.png" height="400px" />					
+						<p>Consistency</p>
+					</section>
+					<section>
+						<img src="img/redundancy.png" height="400px" />					
+						<p>Redundancy</p>
+					</section>					
+					<section>
+						<img src="img/blame.png" height="400px" />					
+						<p>Leverage</p>
+					</section>
+					<section>
+						<img src="img/loser.png" height="400px" />					
+						<p>#winning devops culture</p>
+					</section>
+					<section>
+						<img src="img/devops-dilbert.png" height="400px" />					
+						<p>Thanks</p>
+						<p><a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a></p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

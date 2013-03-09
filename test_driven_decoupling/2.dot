@@ -1,0 +1,8 @@
+digraph G {
+	core -> util
+	system -> { core util }
+	spring -> { util }
+	security -> { core spring system util }
+	edge [style=dashed,color=red];
+	security -> web
+}
