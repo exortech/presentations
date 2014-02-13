@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Promise of Node.js</title>
+
+		<meta name="description" content="Node.js, Promises">
+		<meta name="author" content="R. Owen Rogers">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+<!--		<script>
+			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+-->
+		<!--[if lt IE 9]>
+		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; background-color: black; }
+
+			.title-slide body {
+			}
+			.title-slide section {
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-state="title-slide">
+					<h1>The Promise of Node.js</h1>
+					<h3>Building Scalable Web Applications</h3>
+					<p>
+						<small><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></small>
+					</p>
+					<p><small>
+						<a href="https://github.com/exortech/presentations">https://github.com/exortech/presentations</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-state="intro-slide">
+						<img src="img/nodejs.png" />
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/owen-faro.jpg" />
+						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
+						<p>Product Lead @ <a href="http://www.pulseenergy.com">Pulse Energy</a>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/xp-explained-cover.png" height="400px" />
+						<p>Practicing Agile/XP since 2000</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/thoughtworks-logo.gif" height="150px" />
+						<p>Formerly an agile coach with ThoughtWorks</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/agile-india.png" />
+						<p>Conference organizer for original Agile India conference</p>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<h2>Anyone know what this is?</h2>
+						<img src="img/2001-monolith.png" />
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/2001-poster.jpg" />
+						<h3>This one's for the sci-fi geeks</h3>
+					</section>
+					<section data-state="starting-slide">
+						<h3>Dealing with monolithic systems</h3>
+						<img src="img/whitlock-2001-lg.jpg" />
+						<p style="color: white; position: relative; top: -340px; font-size: 70%; left: -9px;">.WAR</p>
+						<p style="color: white; position: relative; top: -320px; font-size: 70%; left: -9px;">.DLL</p>
+						<p style="color: white; position: relative; top: -300px; font-size: 70%; left: -9px;">.GEM</p>
+					</section>
+					<section data-state="starting-slide">
+						<h2>mon·o·lith·ic</h2>
+						<p><em>characterized by massiveness, total uniformity, rigidity, invulnerability, etc.</em></p>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<h2>Where does the Monolith come from?</h2>
+						<img src="img/monolith-sun.jpg" height="400px" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Evolving systems</h2>
+						<img src="img/apes-monolith.gif" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Canalizing Design</h2>
+						<img src="img/aquaduct.jpg" height="400px" />
+						<p><small><a href="http://michaelfeathers.typepad.com/michael_feathers_blog/2009/06/canalizing-design.html">http://michaelfeathers.typepad.com/michael_feathers_blog/2009/06/canalizing-design.html</a></small></p>
+					</section>
+					<section>
+						<h2>Make HAL do something else</h2>
+						<pre>
+							<code class="JavaScript">
+function askHAL(action) {
+	if (isReadMe(action) {
+		return "Affirmative, Dave. I read you.";
+	} else if (isReadMessage(action)) {
+		return "It is dangerous to remain here. You must leave within two days.";
+	}
+	return "I'm sorry, Dave. I'm afraid I can't do that.";
+}
+							</code>
+						</pre>
+					</section>
+					<section data-state="starting-slide">
+						<h2>Path of least resistance</h2>
+						<img src="img/path_of_least_resistance.jpg" height="500px" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>ac·crete</h2>
+						<ol>
+							<li>Grow by accumulation or coalescence</li>
+							<li>Form (a composite whole or a collection of things) by gradual accumulation</li>
+						</ol>
+					</section>
+					<section data-state="starting-slide">
+						<h2>Big Ball Of Mud</h2>
+						<img src="img/DungBeetle-on-dung.JPG" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Problems of Monolithic Systems</h2>
+						<ul>
+							<li class="fragment">Code encumbrance</li>
+							<li class="fragment">Regression cost</li>
+							<li class="fragment">Scaling</li>
+							<li class="fragment">Resilience</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What's the alternative?</h2>
+						<img src="img/2001-space-odyssey-monolith.jpg" height="400px" />
+					</section>
+					<section>
+						<h2>Service-oriented architecture</h2>
+						<img src="img/soa-large.jpg" height="400px" />
+					</section>
+					<section>
+						<h2>SOA Nirvana - WHEE!</h2>
+						<img src="img/unicornrainbow1.jpg" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Meanwhile, back in the real world...</h2>
+						<img src="img/SO.earth.station.jpg" />
+					</section>
+					<section>
+						<h2>Barriers to SOA</h2>
+						<img src="img/dave-console.gif" />
+					</section>
+					<section>
+						<h2>Design barriers</h2>
+						<ul>
+							<li>Domain model is evolving</li>
+							<li>Code base is rapidly evolving</li>
+							<li>Service context boundaries</li>
+							<li>Conway's law</li>
+							<li>Overhead of splitting and merging services</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Technology barriers</h2>
+						<ul>
+							<li>Message protocol (JSON? BJSON? BSON? Protobuf? Thrift? SOAP?)</li>
+							<li>Message design</li>
+							<li>Serialization/deserialization overhead</li>
+							<li>Message versioning</li>
+							<li>Language/library support</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Deployment barriers</h2>
+						<ul>
+							<li>Dependency management</li>
+							<li>Service versioning</li>
+							<li>Interdependent builds</li>
+							<li>Multiple packages to deploy</li>
+							<li>Monitoring and support</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<h2>So, how do we get from</h2>
+						<img src="img/monolith.jpg" style="vertical-align:middle" />
+						<span style="font-size:300%">&rarr;</span>
+						<img src="img/unicornrainbow1.jpg" style="vertical-align:middle" />
+					</section>
+
+					<section data-state="starting-slide">
+						<h2>Or Even</h2>
+						<img src="img/monolith.jpg" style="vertical-align:middle" />
+						<span style="font-size:300%">&rarr;</span>
+						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
+						<span style="font-size:300%">+</span>
+						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
+					</section>
+
+					<section data-state="starting-slide">
+						<h2>We want to split the monolith</h2>
+						<img src="img/dave.jpg" height="400px" />
+						<h3>But how?</h3>
+					</section>
+					<section data-state="starting-slide">
+						<h2>Easy right?</h2>
+						<ol>
+							<li>Pull related functionality into a separate module</li>
+							<li>Package module as a service</li>
+							<li>Deploy</li>
+							<li>Profit!</li>
+						<ol>
+					</section>
+					<section data-state="starting-slide">
+						<h2>Not so fast, Dave</h2>
+						<img src="img/HAL.jpg" height="400px" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Alien goo</h2>
+						<img src="img/alien-goo.jpg" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>First, a brief digression...</h2>
+						<img src="img/dave-tunnel.jpg" />
+					</section>
+					<section>
+						<h2>Who hasn't read this book?</h2>
+						<img src="img/domain-driven-design.jpg" height="400px" />
+					</section>
+					<section>
+						<h2>Package design</h2>
+						<img src="img/200px-Collected_stories_clarke.jpg" height="300px" />
+						<h3>Package = directory, namespace, module, etc.</h3>
+					</section>
+					<section>
+						<h2>Maximize cohesion within a package</h2>
+						<img src="img/cohesion.png" height="400px" />
+					</section>
+					<section>
+						<h2>Minimize coupling</h2>
+						<img src="img/coupling.png" height="400px" />
+					</section>
+					<section>
+						<h2>Look familiar?</h2>
+						<img src="img/layer-diagram.png" />
+					</section>
+					<section>
+						<h2>What's wrong with this model?</h2>
+						<img src="img/package-diagram.png" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Let's look inside</h2>
+						<img src="img/package-diagram-details.png" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Ewww - maximum alien goo</h2>
+						<img src="img/alien-goo.jpg" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Structure packages by domain context</h2>
+						<img src="img/package-domain.png" />
+						<h3>Makes extracting into services much easier!</h3>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="starting-slide">
+						<h2>So back to</h2>
+						<img src="img/monolith.jpg" style="vertical-align:middle" />
+						<span style="font-size:300%">&rarr;</span>
+						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
+						<span style="font-size:300%">+</span>
+						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
+					</section>
+					<section>
+						<h2>Modularization Process</h2>
+						<ol>
+							<li>Pull related functionality into a common package (maximize cohesion)</li>
+							<li>Restructure code to sever unnecessary external dependencies (minimize coupling)</li>
+							<li>Extract package into an independent component/module</li>
+							<li>Servicify module</li>
+							<li>Profit!</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Great! But this is hard...</h2>
+						<img src="img/dave_ship.jpg" height="400px" />
+					</section>
+					<section>
+						<h2>Test-driven decoupling</h2>
+						<h3>(to the rescue!)</h3>
+						<img src="img/ship.jpg" height="400px" />
+					</section>
+					<section>
+						<h2>Test-driven decoupling</h2>
+						<p>Use tests to enforce package structure and support decoupling effort</p>
+					</section>
+					<section>
+						<h2>Tools</h2>
+						<img src="img/tools.jpg" height="400px" />
+						<h3>Free, open source tools that you are probably already using</h3>
+					</section>
+					<section data-state="starting-slide">
+						<h2>JDepend</h2>
+						<p><a href="http://clarkware.com/software/JDepend.html">http://clarkware.com/software/JDepend.html</a></p>
+					</section>
+					<section data-state="starting-slide">
+						<h2>NDepend</h2>
+						<p><a href="http://www.ndepend.com/">http://www.ndepend.com/</a></p>
+					</section>
+					<section data-state="starting-slide">
+						<h2>MaDGe - Module Dependency Graph</h2>
+						<p><a href="https://github.com/pahen/node-madge">https://github.com/pahen/node-madge/</a></p>
+					</section>
+
+					<section data-state="starting-slide">
+						<h2>What about external dependencies?</h2>
+					</section>
+					<section data-state="starting-slide">
+						<h3>I'm sorry, Dave. This mission is too important for me to allow you to jeopardize it.</h3>
+						<img src="img/HAL.jpg" height="400px" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Focus on the code you own</h2>
+						<img src="img/dave-suit.jpg" />
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Examples</h2>
+						<img src="img/junit-logo.png" height="90px" style="vertical-align:middle" />
+						<span style="font-size: 200%">+</span>
+						<img src="img/jdepend.png" height="80px"  style="vertical-align:middle" />
+					</section>
+					<section>
+						<h2>Example 1: Starting point</h2>
+						<img src="img/1.png" />
+					</section>
+
+					<section>
+						<h2>core &rarr; util</h2>
+						<pre>
+						<code class="java">
+  @Test
+  public void corePackageShouldOnlyDependOn_util() throws Exception {
+    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.util");
+    assertThat(findInternalDependencies("com.pulseenergy.core"), is(valid));
+  }
+						</code>
+					</pre>
+					</section>
+					<section>
+						<h2>system &rarr; { util, core }</h2>
+						<pre>
+						<code class="java">
+  @Test
+  public void systemPackageShouldOnlyDependOn_core_util() throws Exception {
+    Set<String> valid = ImmutableSortedSet.of(
+      "com.pulseenergy.core", "com.pulseenergy.util");
+    assertThat(findInternalDependencies("com.pulseenergy.system"), is(valid));
+  }
+						</code>
+					</pre>
+					</section>
+
+					<section>
+						<h2>Example 2: Invalid dependency</h2>
+						<img src="img/2.png" />
+					</section>
+					<section>
+						<h2>security &rarr; { core, spring, system, util }</h2>
+						<pre>
+						<code class="java">
+  @Test
+  public void securityPackageShouldOnlyDependOn_core_springSecurity_system_util() {
+    Set<String> valid = ImmutableSortedSet.of(
+      "com.pulseenergy.core", "com.pulseenergy.spring.security",
+      "com.pulseenergy.system", "com.pulseenergy.util");
+    Set<String> invalid = ImmutableSortedSet.of("com.pulseenergy.web.filter"); // invalid dep
+    assertThat(findInternalDependencies("com.pulseenergy.security"),
+      is(ImmutableSortedSet.of(valid, invalid)));
+  }
+						</code>
+					</pre>
+					</section>
+					<section>
+						<h2>Test Writing Process</h2>
+						<ol>
+							<li>Write a failing test to capture the existing dependencies (Red bar)</li>
+							<li>Assert all existing dependencies (Green bar)</li>
+							<li>Split dependencies into valid and invalid sets</li>
+							<li>Remove one invalid dependencies from the set (Red bar)</li>
+							<li>Break that dependencies in the code (Green bar)</li>
+							<li>Lather (commit) and repeat</li>
+						</ol>
+					</section>
+					<section>
+						<h2>1. Capture the existing dependencies: foo &rarr; ???</h2>
+						<pre>
+							<code>
+  @Test
+  public void fooShouldDependOnX() {
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
+    	is(Collections.emptySet()));
+  }
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>2. assert existing dependencies (green bar)</h2>
+						<pre>
+							<code>
+  @Test
+  public void fooShouldDependOnX() {
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
+    	is(ImmutableSortedSet.of("com.pulseenergy.bar", "com.pulseenergy.baz")));
+  }
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>3. split into valid/invalid sets (green bar)</h2>
+						<pre>
+							<code>
+  @Test
+  public void fooShouldDependOnBar() {
+    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.bar");
+    Set<String> invalid = ImmutableSortedSet.of("com.pulseenergy.baz");
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
+    	is(Iterables.concat(valid, invalid)));
+  }
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>4. remove invalid dependency from test (red bar)</h2>
+						<pre>
+							<code>
+  @Test
+  public void fooShouldDependOnBar() {
+    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.bar");
+    assertThat(findInternalDependencies("com.pulseenergy.foo"), is(valid));
+  }
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>5. remove invalid dependency from code (green bar)</h2>
+						<img src="img/space-arm.jpg" height="400px" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Breaking dependencies can take a long time</h2>
+						<img src="img/astronauts.jpg" height="350px" />
+						<h3>Commit tests with invalid dependencies listed</h3>
+					</section>
+					<section>
+						<h2>Run these tests in your build</h2>
+						<img src="img/HAL.jpg" height="400px">
+						<h3>You broke the build, Dave &#9608;</h3>
+					</section>
+					<section>
+						<h2>When package is suitably decoupled, service-ify!</h2>
+						<img src="img/baby.jpg">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Thanks!</h2>
+						<img src="img/baby.jpg">
+						<p><a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a></p>
+					</section>
+					<section>
+						<img src="img/2001-poster.jpg" />
+						<h3>For serious geeks only</h3>
+					</section>
+
+					<section>
+						<h2>Under the hood</h2>
+						<pre><code>
+private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOException {
+	final JDepend jDepend = new JDepend();
+	jDepend.addDirectory(IntrospectionHelper.findClassesDirectory().getAbsolutePath()
+		 + "/" + convertPackageToPath(targetPackage));
+	@SuppressWarnings("unchecked")
+	final Collection<JavaPackage> allPackages = jDepend.analyze();
+	final List<JavaPackage> filteredPackages = Lists.newArrayList();
+	for (JavaPackage aPackage : allPackages) {
+		if (aPackage.getName().startsWith(targetPackage)) {
+			filteredPackages.add(aPackage);
+		}
+	}
+	return filteredPackages;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Under the hood</h2>
+						<pre><code>
+private Set<String> findInvalidDependencies(JavaPackage javaPackage) {
+	final Set<String> packageViolations = Sets.newTreeSet();
+	@SuppressWarnings("unchecked")
+	Collection<JavaPackage> efferents = javaPackage.getEfferents();
+	for (JavaPackage efferentPackage : efferents) {
+		if (isInternalDependency(efferentPackage)) {
+			packageViolations.add(efferentPackage.getName());
+		}
+	}
+	return packageViolations;
+}
+						</code></pre>
+					</section>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.tabReplace = '  '; hljs.initHighlightingOnLoad(); } },
+					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+	</body>
+</html>
