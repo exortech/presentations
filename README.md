@@ -10,3 +10,6 @@ Prerequisites:
 - npm install
 - open dev_ops_culture/index.html
 
+View online
+----
+- http://exortech.github.io/presentations/
