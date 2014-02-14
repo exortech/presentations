@@ -15,6 +15,7 @@ var opts = {
 
 io.sockets.on('connection', function(socket) {
 	socket.on('slidechanged', function(slideData) {
+		if (typeof slideData.secret == 'undefined' || slideData.secret == null || slideData.secret === '') return;
 		if (createHash(slideData.secret) === slideData.socketId) {
 			slideData.secret = null;
 			socket.broadcast.emit(slideData.socketId, slideData);
@@ -29,6 +30,7 @@ app.configure(function() {
 });
 
 app.get("/", function(req, res) {
+	res.writeHead(200, {'Content-Type': 'text/html'});
 	fs.createReadStream(opts.baseDir + '/index.html').pipe(res);
 });
 
