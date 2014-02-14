@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Promise of Node.js</title>
+
+		<meta name="description" content="Node.js, Promises">
+		<meta name="author" content="R. Owen Rogers">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/moon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+<!--		<script>
+			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+-->
+		<!--[if lt IE 9]>
+		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.reveal section img { border: none; background-color: black; }
+
+			.title-slide body {
+			}
+			.title-slide section {
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-state="title-slide">
+					<h1>The Promise of Node.js</h1>
+					<h3>Building Scalable Web Applications</h3>
+					<p>
+						<small><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></small>
+					</p>
+					<p><small>
+						<a href="https://github.com/exortech/presentations">https://github.com/exortech/presentations</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-state="intro-slide">
+						<h2>Hi!</h2>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/owen-faro.jpg" />
+						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
+						<p>Product Lead @ <a href="http://www.pulseenergy.com">Pulse Energy</a>
+					</section>
+					<section data-state="intro-slide">
+						<img src="img/paul.jpg" height="350px" />
+						<p>Paul Teehan</p>
+						<p>Energy Analytics Developer @ <a href="http://www.pulseenergy.com">Pulse Energy</a>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/pulse-energy-logo.png" height="140px" />
+					</section>
+					<section data-state="intro-slide">
+						<h3>Big Data</h3>
+						<p>+</p>
+						<h3>Web technology</h3>
+						<p>+</p>
+						<h3>Data analytics</h3>
+						<p>+</p>
+						<h3>Behavioural science</h3>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/power-lines.jpg" />
+						<p>Energy utilities</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/smart-meter.png" height="400px" />
+						<p>Smart grid data</p>
+					</section>
+					<section data-state="intro-slide">
+						<img src="../common/img/power-plant.png" height="400px" />
+						<p>Make the world a better place</p>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<img src="img/nodejs.png" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>Platform for building scalable web applications</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/v8.png" height="300px" />
+						<h2>Javascript virtual machine</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/nodejs-architecture.png" />
+						<h2>Core set of libraries</h2>
+					</section>
+				</section>
+				<section>
+					<section data-state="starting-slide">
+						<img src="img/arnold-schwarzenegger-love-child.jpg" />
+						<h2>Server-side Javascript - WTF?</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/javascript-logo.png" height="300px" />
+						<h2>A brief history of Javascript (abridged)</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/Javascript_icon.svg" height="400px" />
+						<h2>1995: Invented by Brendan Eich</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/animated_button.gif" height="400px" />
+					</section>
+					<section data-state="starting-slide">
+						<h2>XMLHttpRequest</h2>
+						<h3>2004: Ajax becomes de facto</h3>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/JQuery_logo.svg" height="260px" style="background-color: white" />
+						<h2>2006: Javascript gets respect</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/Google_Chrome_icon.svg" height="260px" style="background-color: white" />
+						<h3>2008: Chrome launched - browser wars resume</h3>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/nodejs.png" />
+						<h2>2009: Node.js launched</h2>
+					</section>
+					<section data-state="starting-slide">
+						<h2>2014</h2>
+						<ul>
+							<li><strong>Javascript</strong>: programming language of the web</li>
+							<li><strong>V8</strong>: one of the most heavily optimized, widely used VMs</li>
+							<li><strong>Node.js</strong>: unprecedent growth, web-centric community</li>
+						</ul>
+					</section>
+					<section data-state="starting-slide">
+						<h2>2014</h2>
+						<img src="img/Joyent-logo.png" height="100px" style="background-color: white" />
+						<img src="img/linkedin-logo.png" height="100px"/>
+						<img src="img/groupon_logo.gif" height="100px"/>
+						<img src="img/paypal-logo.png" height="100px"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="img/spongebob-who-cares.jpeg" height="400px" />
+						<h2>Server-side Javascript - who cares?</h2>
+					</section>
+					<section>
+						<h2>Node.js: asynchronous, evented I/O</h2>
+					</section>
+					<section>
+						<img src="img/nginx-logo.jpeg" />
+						<h2>Event-driven architecture (SEDA)</h2>
+					</section>
+					<section>
+						<img src="img/throughput.jpg" />
+						<h2>Low CPU, high I/O</h2>
+					</section>
+					<section>
+						<img src="img/apache-logo.png" />
+						<h3>Thread-based architectures: scale later</h3>
+					</section>
+					<section>
+						<img src="img/webservice.jpg" />
+						<h2>Service-oriented architecture</h2>
+					</section>
+					<section>
+						<img src="img/no-waiting.jpg" height="300px" />
+						<h3>Node.js: built from the ground up for asynchrony</h3>
+					</section>
+					<section>
+						<img src="img/node_event_loop.png" />
+						<h2>Node.js event loop</h2>
+					</section>
+				</section>
+
+				<section>
+					<section data-state="starting-slide">
+						<img src="img/trapeeze.jpg" height="300px" />
+						<h2>Dealing with asynchrony</h2>
+					</section>
+					<section data-state="starting-slide">
+						<img src="img/callback.jpg" />
+						<h2>Callbacks</h2>
+					</section>
+					<section>
+						<h2>Callback example</h2>
+						<pre>
+							<code class="JavaScript">
+fs.readFile(filename, [options], callback)
+							</code>
+							<code class="JavaScript">
+var callback = function (err, data) {}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Callback example</h2>
+						<pre>
+							<code class="JavaScript">
+fs.readFile('/buildings.csv', function (err, data) {
+  if (err) {
+  	throw err;
+  }
+  console.log(data);
+});
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Callback results</h2>
+						<pre>
+							<code class="JavaScript">
+var result = fs.readFile('/buildings.csv', function (err, data) {
+  if (err) {
+  	throw err;
+  }
+  return data;
+});
+console.log(result); // ????
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Callback chaining</h2>
+						<pre>
+							<code class="JavaScript">
+var loadBuildings = function (buildingType, cb) {
+	fs.readFile('/buildings.csv', function (err, data) {
+	  if (err) {
+	  	cb(err);
+	  }
+	  processData(data, cb);
+	});
+}							</code>
+						</pre>
+					</section>
+					<section data-state="starting-slide">
+						<h2>Callback hell</h2>
+						<img src="img/callback_hell.jpg" />
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What's the alternative?</h2>
+					</section>
+					<section>
+						<img src="img/promise-logo.png" height="150px">
+						<h2>Promises</h2>
+					</section>
+					<section>
+						<img src="img/JQuery_logo.svg" height="150px" style="background-color: white" />
+						<h2>JQuery Promises</h2>
+					</section>
+					<section>
+						<h2>Promise example</h2>
+						<pre>
+							<code class="JavaScript">
+loadBuildings(buildingType).then(function (buildingData) {
+	return processData(buildingData);
+}).fail(function (err) {
+	return handleError(err);
+});
+							</code>
+						</pre>
+					</section>
+					<section data-state="starting-slide">
+						<h2>EventEmitters</h2>
+						<pre>
+							<code class="Javascript">
+process.on('uncaughtException', function (err) {
+	logger.error(err, 'Unhandled error');
+	process.exit(1);
+});
+
+process.on('exit', function () {
+	logger.info('Process is exiting');
+});
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+
+					<section>
+						<h2>More information</h2>
+						<ul>
+							<li><strong>Q</strong>: <a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a></li>
+							<li><strong>Promise spec</strong>: <a href="http://promises-aplus.github.io/promises-spec/">http://promises-aplus.github.io/promises-spec/</a></li>
+						</ul>
+					</section>
+					<section>
+						<img src="../common/img/pulse-energy-logo.png" height="140px" />
+						<p><a href="mailto:owen@pulseenergy.com">owen@pulseenergy.com</a> | <a href="http://twitter.com/exortech">@exortech</a></p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.tabReplace = '  '; hljs.initHighlightingOnLoad(); } },
+					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+	</body>
+</html>
