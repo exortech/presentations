@@ -11,6 +11,6 @@
     "url": "git://github.com/exortech/presentations.git"
   },
   "dependencies": {
-    "reveal.js": "git://github.com/hakimel/reveal.js.git"
+    "reveal.js": "3.0.0"
   }
 }
