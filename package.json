@@ -1,16 +1,13 @@
 {
   "name": "Exortech_Presentations",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
-  "engines": {
-    "node": "0.8.x"
-  },
   "keywords": ["presentation", "reveal.js"],
   "repository": {
     "type": "git",
     "url": "git://github.com/exortech/presentations.git"
   },
   "dependencies": {
-    "reveal.js": "git://github.com/hakimel/reveal.js.git"
+    "reveal.js": "^3.2.0"
   }
 }

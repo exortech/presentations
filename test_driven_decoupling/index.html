@@ -9,12 +9,7 @@
 		<meta name="description" content="Test-Driven Decoupling">
 		<meta name="author" content="R. Owen Rogers">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -22,25 +17,8 @@
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
-<!--		<script>
-			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
--->
-		<!--[if lt IE 9]>
-		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
-
 		<style>
 			.reveal section img { border: none; background-color: black; }
-
-			.title-slide body {
-				/*background: url("img/birds_in_the_sky.jpg") no-repeat center center fixed;*/
-				/*background-size: 100%;*/
-			}
-			.title-slide section {
-				/*background-color: rgba(255,255,255,0.8);*/
-				/*background-size: 100%;*/
-			}
 		</style>
 	</head>
 
@@ -87,7 +65,7 @@
 					<section data-state="starting-slide">
 						<h2>Anyone know what this is?</h2>
 						<img src="img/2001-monolith.png" />
-					</section>					
+					</section>
 					<section data-state="starting-slide">
 						<img src="img/2001-poster.jpg" />
 						<h3>This one's for the sci-fi geeks</h3>
@@ -326,7 +304,7 @@ function askHAL(action) {
 					<section>
 						<h2>Test-driven decoupling</h2>
 						<h3>(to the rescue!)</h3>
-						<img src="img/ship.jpg" height="400px" />				
+						<img src="img/ship.jpg" height="400px" />
 					</section>
 					<section>
 						<h2>Test-driven decoupling</h2>
@@ -382,7 +360,7 @@ function askHAL(action) {
 						<code class="java">
   @Test
   public void corePackageShouldOnlyDependOn_util() throws Exception {
-    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.util");
+    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.util");
     assertThat(findInternalDependencies("com.pulseenergy.core"), is(valid));
   }
 						</code>
@@ -394,7 +372,7 @@ function askHAL(action) {
 						<code class="java">
   @Test
   public void systemPackageShouldOnlyDependOn_core_util() throws Exception {
-    Set<String> valid = ImmutableSortedSet.of(
+    Set&lt;String&gt; valid = ImmutableSortedSet.of(
       "com.pulseenergy.core", "com.pulseenergy.util");
     assertThat(findInternalDependencies("com.pulseenergy.system"), is(valid));
   }
@@ -412,11 +390,11 @@ function askHAL(action) {
 						<code class="java">
   @Test
   public void securityPackageShouldOnlyDependOn_core_springSecurity_system_util() {
-    Set<String> valid = ImmutableSortedSet.of(
-      "com.pulseenergy.core", "com.pulseenergy.spring.security", 
+    Set&lt;String&gt; valid = ImmutableSortedSet.of(
+      "com.pulseenergy.core", "com.pulseenergy.spring.security",
       "com.pulseenergy.system", "com.pulseenergy.util");
-    Set<String> invalid = ImmutableSortedSet.of("com.pulseenergy.web.filter"); // invalid dep
-    assertThat(findInternalDependencies("com.pulseenergy.security"), 
+    Set&lt;String&gt; invalid = ImmutableSortedSet.of("com.pulseenergy.web.filter"); // invalid dep
+    assertThat(findInternalDependencies("com.pulseenergy.security"),
       is(ImmutableSortedSet.of(valid, invalid)));
   }
 						</code>
@@ -430,7 +408,7 @@ function askHAL(action) {
 							<li>Split dependencies into valid and invalid sets</li>
 							<li>Remove one invalid dependencies from the set (Red bar)</li>
 							<li>Break that dependencies in the code (Green bar)</li>
-							<li>Lather (commit) and repeat</li>							
+							<li>Lather (commit) and repeat</li>
 						</ol>
 					</section>
 					<section>
@@ -439,7 +417,7 @@ function askHAL(action) {
 							<code>
   @Test
   public void fooShouldDependOnX() {
-    assertThat(findInternalDependencies("com.pulseenergy.foo"), 
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
     	is(Collections.emptySet()));
   }
 							</code>
@@ -451,7 +429,7 @@ function askHAL(action) {
 							<code>
   @Test
   public void fooShouldDependOnX() {
-    assertThat(findInternalDependencies("com.pulseenergy.foo"), 
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
     	is(ImmutableSortedSet.of("com.pulseenergy.bar", "com.pulseenergy.baz")));
   }
 							</code>
@@ -463,9 +441,9 @@ function askHAL(action) {
 							<code>
   @Test
   public void fooShouldDependOnBar() {
-    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.bar");
-    Set<String> invalid = ImmutableSortedSet.of("com.pulseenergy.baz");
-    assertThat(findInternalDependencies("com.pulseenergy.foo"), 
+    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.bar");
+    Set&lt;String&gt; invalid = ImmutableSortedSet.of("com.pulseenergy.baz");
+    assertThat(findInternalDependencies("com.pulseenergy.foo"),
     	is(Iterables.concat(valid, invalid)));
   }
 							</code>
@@ -477,7 +455,7 @@ function askHAL(action) {
 							<code>
   @Test
   public void fooShouldDependOnBar() {
-    Set<String> valid = ImmutableSortedSet.of("com.pulseenergy.bar");
+    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.bar");
     assertThat(findInternalDependencies("com.pulseenergy.foo"), is(valid));
   }
 							</code>
@@ -537,8 +515,8 @@ private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOEx
 					<section>
 						<h2>Under the hood</h2>
 						<pre><code>
-private Set<String> findInvalidDependencies(JavaPackage javaPackage) {
-	final Set<String> packageViolations = Sets.newTreeSet();
+private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
+	final Set&lt;String&gt; packageViolations = Sets.newTreeSet();
 	@SuppressWarnings("unchecked")
 	Collection<JavaPackage> efferents = javaPackage.getEfferents();
 	for (JavaPackage efferentPackage : efferents) {
@@ -557,32 +535,15 @@ private Set<String> findInvalidDependencies(JavaPackage javaPackage) {
 		</div>
 
 		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
-		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+		<script src="../node_modules/reveal.js/js/reveal.js"></script>
 
 		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				rollingLinks: false,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.tabReplace = '  '; hljs.initHighlightingOnLoad(); } },
-					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+				transition: 'fade',
+			    dependencies: [
+			    //     // Syntax highlight for <code> elements
+        			{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    			]
 			});
 		</script>
 
