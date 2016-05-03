@@ -9,14 +9,14 @@
 		<meta name="description" content="Test-Driven Decoupling">
 		<meta name="author" content="R. Owen Rogers">
 
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/css/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
 		<style>
 			.reveal section img { border: none; background-color: black; }
 		</style>
@@ -496,13 +496,13 @@ function askHAL(action) {
 					<section>
 						<h2>Under the hood</h2>
 						<pre><code>
-private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOException {
+private Collection&lt;JavaPackage&gt; analyzePackage(String targetPackage) throws IOException {
 	final JDepend jDepend = new JDepend();
 	jDepend.addDirectory(IntrospectionHelper.findClassesDirectory().getAbsolutePath()
 		 + "/" + convertPackageToPath(targetPackage));
 	@SuppressWarnings("unchecked")
-	final Collection<JavaPackage> allPackages = jDepend.analyze();
-	final List<JavaPackage> filteredPackages = Lists.newArrayList();
+	final Collection&lt;JavaPackage&gt; allPackages = jDepend.analyze();
+	final List&lt;JavaPackage&gt; filteredPackages = Lists.newArrayList();
 	for (JavaPackage aPackage : allPackages) {
 		if (aPackage.getName().startsWith(targetPackage)) {
 			filteredPackages.add(aPackage);
@@ -518,7 +518,7 @@ private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOEx
 private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
 	final Set&lt;String&gt; packageViolations = Sets.newTreeSet();
 	@SuppressWarnings("unchecked")
-	Collection<JavaPackage> efferents = javaPackage.getEfferents();
+	Collection&lt;JavaPackage&gt; efferents = javaPackage.getEfferents();
 	for (JavaPackage efferentPackage : efferents) {
 		if (isInternalDependency(efferentPackage)) {
 			packageViolations.add(efferentPackage.getName());
@@ -534,15 +534,15 @@ private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
 			</div>
 		</div>
 
-		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
-		<script src="../node_modules/reveal.js/js/reveal.js"></script>
+		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="../lib/reveal.js/js/reveal.js"></script>
 
 		<script>
 			Reveal.initialize({
 				transition: 'fade',
 			    dependencies: [
 			    //     // Syntax highlight for <code> elements
-        			{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
     			]
 			});
 		</script>

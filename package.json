@@ -9,5 +9,8 @@
   },
   "dependencies": {
     "reveal.js": "^3.2.0"
+  },
+  "scripts": {
+    "postinstall": "cp -r ./node_modules/reveal.js/js/ lib/reveal.js/js & cp -r ./node_modules/reveal.js/css/ lib/reveal.js/css & cp -r ./node_modules/reveal.js/lib/ lib/reveal.js/lib & cp -r ./node_modules/reveal.js/plugin/ lib/reveal.js/plugin"
   }
 }
