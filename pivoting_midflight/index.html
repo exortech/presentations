@@ -14,26 +14,26 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.min.css">
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/css/theme/sky.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
+		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
 <!--		<script>
-			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			document.write( '<link rel="stylesheet" href="../lib/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 -->
 		<!--[if lt IE 9]>
-		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
+		<script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
 		<style>
 			.reveal section img { border: none; background-color: white; }
 
-			body { 
+			body {
 				background-size: 100%;
 			}
 			.title-slide body {
@@ -48,7 +48,7 @@
 				background:url("img/bird_relaxed_flying_lt.jpg") no-repeat center fixed;
 				background-size: 100%;
 			}
-			
+
 			.starting-slide body {
 				background:url("img/blue_sky_with_bird.png") no-repeat center fixed;
 				background-size: 100%;
@@ -184,7 +184,7 @@
 				<section>
 					<section data-state="starting-slide">
 						<h2>Personal story</h2>
-					</section>					
+					</section>
 					<section data-state="starting-slide">
 						<img src="img/calendar.jpg" height="400px" />
 						<p>1.5 years ago (Mid 2011)</p>
@@ -361,7 +361,7 @@
 							<li>Refocus marketing team to research North American utility market</li>
 							<li>Repurpose product to present to utility prospects</li>
 						</ul>
-					</section>					
+					</section>
 					<section data-state="approach-slide">
 						<h3>Successes</h3>
 						<ol>
@@ -562,35 +562,17 @@
 			</div>
 		</div>
 
-		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
-		<script src="../node_modules/reveal.js/js/reveal.min.js"></script>
+		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="../lib/reveal.js/js/reveal.js"></script>
 
 		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				rollingLinks: false,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+				transition: 'fade',
+			    dependencies: [
+			    //     // Syntax highlight for <code> elements
+        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    			]
 			});
-
 		</script>
 
 	</body>
