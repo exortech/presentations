@@ -9,6 +9,7 @@
 		<meta name="description" content="Test-Driven Decoupling">
 		<meta name="author" content="R. Owen Rogers">
 
+<<<<<<< HEAD
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -16,31 +17,18 @@
 
 		<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../node_modules/reveal.js/css/theme/night.css" id="theme">
+=======
+		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/css/theme/night.css" id="theme">
+>>>>>>> master
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../node_modules/reveal.js/css/print/pdf.css" type="text/css" media="print">'
-<!--		<script>
-			document.write( '<link rel="stylesheet" href="../node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
--->
-		<!--[if lt IE 9]>
-		<script src="../node_modules/reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
-
+		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
 		<style>
 			.reveal section img { border: none; background-color: black; }
-
-			.title-slide body {
-				/*background: url("img/birds_in_the_sky.jpg") no-repeat center center fixed;*/
-				/*background-size: 100%;*/
-			}
-			.title-slide section {
-				/*background-color: rgba(255,255,255,0.8);*/
-				/*background-size: 100%;*/
-			}
 		</style>
 	</head>
 
@@ -518,13 +506,13 @@ function askHAL(action) {
 					<section>
 						<h2>Under the hood</h2>
 						<pre><code>
-private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOException {
+private Collection&lt;JavaPackage&gt; analyzePackage(String targetPackage) throws IOException {
 	final JDepend jDepend = new JDepend();
 	jDepend.addDirectory(IntrospectionHelper.findClassesDirectory().getAbsolutePath()
 		 + "/" + convertPackageToPath(targetPackage));
 	@SuppressWarnings("unchecked")
-	final Collection<JavaPackage> allPackages = jDepend.analyze();
-	final List<JavaPackage> filteredPackages = Lists.newArrayList();
+	final Collection&lt;JavaPackage&gt; allPackages = jDepend.analyze();
+	final List&lt;JavaPackage&gt; filteredPackages = Lists.newArrayList();
 	for (JavaPackage aPackage : allPackages) {
 		if (aPackage.getName().startsWith(targetPackage)) {
 			filteredPackages.add(aPackage);
@@ -540,7 +528,7 @@ private Collection<JavaPackage> analyzePackage(String targetPackage) throws IOEx
 private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
 	final Set&lt;String&gt; packageViolations = Sets.newTreeSet();
 	@SuppressWarnings("unchecked")
-	Collection<JavaPackage> efferents = javaPackage.getEfferents();
+	Collection&lt;JavaPackage&gt; efferents = javaPackage.getEfferents();
 	for (JavaPackage efferentPackage : efferents) {
 		if (isInternalDependency(efferentPackage)) {
 			packageViolations.add(efferentPackage.getName());
@@ -556,33 +544,16 @@ private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
 			</div>
 		</div>
 
-		<script src="../node_modules/reveal.js/lib/js/head.min.js"></script>
-		<script src="../node_modules/reveal.js/js/reveal.js"></script>
+		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="../lib/reveal.js/js/reveal.js"></script>
 
 		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				rollingLinks: false,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: 'fade', // Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: '../node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.tabReplace = '  '; hljs.initHighlightingOnLoad(); } },
-					{ src: '../node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '../node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: '../node_modules/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+				transition: 'fade',
+			    dependencies: [
+			    //     // Syntax highlight for <code> elements
+        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    			]
 			});
 		</script>
 
