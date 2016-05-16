@@ -50,7 +50,7 @@
 						<img src="../common/img/owen-faro.jpg" />
 						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
 						<p>Lead Consultant @ <a href="http://www.exortech.com">Exortech Consulting</a>
-						<p>(formerly) Product Owner @ <a href="http://www.enernoc.com">EnerNOC</a>
+						<p>(formerly) Product Owner / Solutions Architect @ <a href="http://www.enernoc.com">EnerNOC</a>
 					</section>
 					<section data-state="intro-slide">
 						<img src="img/NicCimos2011-profile.jpg" />
@@ -80,7 +80,7 @@
 								<li class="fragment">Less frequent deployments</li>
 								<li class="fragment">Inefficient system scalability</li>
 								<li class="fragment">Less resilient</li>
-								<li class="fragment">Harder to scale teams</li>
+								<li class="fragment">Scales poorly across teams</li>
 							</ul>
 						</p>
 					</section>
@@ -218,319 +218,126 @@ function askHAL(action) {
 					</section>
 
 					<section>
-						<h2>Or Even</h2>
-						<img src="img/monolith.jpg" style="vertical-align:middle" />
-						<span style="font-size:300%">&rarr;</span>
-						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
-						<span style="font-size:300%">+</span>
-						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
-					</section>
-
-					<section>
 						<img src="img/building_microservices_book.jpg" height="400px" />
-						<h3>Building Microservices - Sam Newman</h3>
+						<h2>A bit of guidance</h2>
+					</section>
+
+					<section>
+						<h2>Our recommendations</h2>
+						<ul>
+							<li>Technology</li>
+							<li>Design</li>
+							<li>Integration</li>
+							<li>Deployment &amp; Provisioning</li>
+							<li>Security</li>
+							<li>Monitoring</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Technology</h2>
+						<p>Choose language / framework that make asynchronous communication easy</p>
+						<div>
+							<img src="img/nodejs-new.png" height="100px" style="background-color: white; padding: 2mm" />
+							<img src="img/dropwizard_logo.png" height="100px"  style="background-color: white; padding: 2mm" />
+							<img src="img/elixir-logo.png" height="86px"  style="background-color: white; padding: 4mm" />
+						</div>
+					</section>
+
+					<section>
+						<h2>The Dark Side of Polyglot</h2>
+						<img src="img/Dark_Side_of_the_Moon.png" height="300px" />
+					</section>
+
+					<section>
+						<h2>Design</h2>
+						<img src="img/domain-driven-design.jpg" height="300px" />
+						<p>Align service boundaries to bounded contexts / value streams</p>
+					</section>
+
+					<section>
+						<h2>Design</h2>
+						<img src="img/corridor-from-2001-a-space-odyssey.jpg" height="300px" />
+						<p>Share nothing architecture</p>
+					</section>
+
+					<section>
+						<h2>Integration</h2>
+						<img src="img/docking-scene.jpg" height="300px" />
+						<p>Default to HTTP RESTful endpoints</p>
+					</section>
+
+					<section>
+						<h2>Deployment</h2>
+						<img src="img/teamcity_logo.jpg" height="100px" style="background-color: white; padding: 2mm" />
+						<p>Separate build and deploy targets per service</p>
+						<p>Continuous deployment (where feasible)</p>
+						<p>Zero-downtime deployment</p>
+					</section>
+
+					<section>
+						<h2>Provisioning</h2>
+						<img src="img/chef-logo.png" height="200px"  style="background-color: white; padding: 0 4mm" />
+						<p>Common cookbook for service creation</p>
+						<p>Single-command provisioning</p>
+					</section>
+
+					<section>
+						<h2>Security</h2>
+						<img src="img/HAL.jpg" height="300px" />
+						<p>Keep it simple - shared secrets</p>
+						<p>Encapsulate session storage</p>
+					</section>
+
+					<section>
+						<h2>Monitoring</h2>
+						<img src="img/monitoring.png" height="300px" />
+						<p>Standard health-check per service: <span class="code">/_hc</span></p>
+					</section>
+
+					<section>
+						<h2>Monitoring</h2>
+						<!-- <img src="img/monitoring.png" height="300px" /> -->
+						<img src="img/elk-logo.png" height="200px" />
+						<div>
+							<img src="img/pagerduty-logo.png" height="100px" style="background-color: white; padding: 2mm" />
+							<img src="img/pingdom-logo.png" height="100px" style="background-color: white; padding: 2mm" />
+						</div>
 					</section>
 
 				</section>
 
 				<section>
 					<section>
-						<h2>First, a brief digression...</h2>
-						<img src="img/dave-tunnel.jpg" />
+						<h2>Pitfalls of microservices</h2>
+						<ul>
+							<li>Danger of distributed monolith</li>
+							<li>More builds, more deploys</li>
+							<li>Cascading failures</li>
+							<li>Service ownership</li>
+						</ul>
 					</section>
 					<section>
-						<h2>Who hasn't read this book?</h2>
-						<img src="img/domain-driven-design.jpg" height="400px" />
-					</section>
-					<section>
-						<h2>Package design</h2>
-						<img src="img/200px-Collected_stories_clarke.jpg" height="300px" />
-						<h3>Package = directory, namespace, module, etc.</h3>
-					</section>
-					<section>
-						<h2>Maximize cohesion within a package</h2>
-						<img src="img/cohesion.png" height="400px" />
-					</section>
-					<section>
-						<h2>Minimize coupling</h2>
-						<img src="img/coupling.png" height="400px" />
-					</section>
-					<section>
-						<h2>Look familiar?</h2>
-						<img src="img/layer-diagram.png" />
-					</section>
-					<section>
-						<h2>What's wrong with this model?</h2>
-						<img src="img/package-diagram.png" />
-					</section>
-					<section>
-						<h2>Let's look inside</h2>
-						<img src="img/package-diagram-details.png" />
-					</section>
-					<section>
-						<h2>Ewww - maximum alien goo</h2>
-						<img src="img/alien-goo.jpg" />
-					</section>
-					<section>
-						<h2>Structure packages by domain context</h2>
-						<img src="img/package-domain.png" />
-						<h3>Makes extracting into services much easier!</h3>
+						<h2>Future work</h2>
+						<ul>
+							<li>Dockerization</li>
+							<li>Autoscaling</li>
+							<li>Blue-green deployment</li>
+						</ul>
 					</section>
 				</section>
 
-				<section>
-					<section>
-						<h2>So back to</h2>
-						<img src="img/monolith.jpg" style="vertical-align:middle" />
-						<span style="font-size:300%">&rarr;</span>
-						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
-						<span style="font-size:300%">+</span>
-						<img src="img/monolith.jpg" style="vertical-align:middle; height:30%" />
-					</section>
-					<section>
-						<h2>Modularization Process</h2>
-						<ol>
-							<li>Pull related functionality into a common package (maximize cohesion)</li>
-							<li>Restructure code to sever unnecessary external dependencies (minimize coupling)</li>
-							<li>Extract package into an independent component/module</li>
-							<li>Servicify module</li>
-							<li>Profit!</li>
-						</ol>
-					</section>
-					<section>
-						<h2>Great! But this is hard...</h2>
-						<img src="img/dave_ship.jpg" height="400px" />
-					</section>
-					<section>
-						<h2>Test-driven decoupling</h2>
-						<h3>(to the rescue!)</h3>
-						<img src="img/ship.jpg" height="400px" />
-					</section>
-					<section>
-						<h2>Test-driven decoupling</h2>
-						<p>Use tests to enforce package structure and support decoupling effort</p>
-					</section>
-					<section>
-						<h2>Tools</h2>
-						<img src="img/tools.jpg" height="400px" />
-						<h3>Free, open source tools that you are probably already using</h3>
-					</section>
-					<section>
-						<h2>JDepend</h2>
-						<p><a href="http://clarkware.com/software/JDepend.html">http://clarkware.com/software/JDepend.html</a></p>
-					</section>
-					<section>
-						<h2>NDepend</h2>
-						<p><a href="http://www.ndepend.com/">http://www.ndepend.com/</a></p>
-					</section>
-					<section>
-						<h2>MaDGe - Module Dependency Graph</h2>
-						<p><a href="https://github.com/pahen/node-madge">https://github.com/pahen/node-madge/</a></p>
-					</section>
-
-					<section>
-						<h2>What about external dependencies?</h2>
-					</section>
-					<section>
-						<h3>I'm sorry, Dave. This mission is too important for me to allow you to jeopardize it.</h3>
-						<img src="img/HAL.jpg" height="400px" />
-					</section>
-					<section>
-						<h2>Focus on the code you own</h2>
-						<img src="img/dave-suit.jpg" />
-					</section>
-
-				</section>
-
-				<section>
-					<section>
-						<h2>Examples</h2>
-						<img src="img/junit-logo.png" height="90px" style="vertical-align:middle" />
-						<span style="font-size: 200%">+</span>
-						<img src="img/jdepend.png" height="80px"  style="vertical-align:middle" />
-					</section>
-					<section>
-						<h2>Example 1: Starting point</h2>
-						<img src="img/1.png" />
-					</section>
-
-					<section>
-						<h2>core &rarr; util</h2>
-						<pre>
-						<code class="java">
-  @Test
-  public void corePackageShouldOnlyDependOn_util() throws Exception {
-    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.util");
-    assertThat(findInternalDependencies("com.pulseenergy.core"), is(valid));
-  }
-						</code>
-					</pre>
-					</section>
-					<section>
-						<h2>system &rarr; { util, core }</h2>
-						<pre>
-						<code class="java">
-  @Test
-  public void systemPackageShouldOnlyDependOn_core_util() throws Exception {
-    Set&lt;String&gt; valid = ImmutableSortedSet.of(
-      "com.pulseenergy.core", "com.pulseenergy.util");
-    assertThat(findInternalDependencies("com.pulseenergy.system"), is(valid));
-  }
-						</code>
-					</pre>
-					</section>
-
-					<section>
-						<h2>Example 2: Invalid dependency</h2>
-						<img src="img/2.png" />
-					</section>
-					<section>
-						<h2>security &rarr; { core, spring, system, util }</h2>
-						<pre>
-						<code class="java">
-  @Test
-  public void securityPackageShouldOnlyDependOn_core_springSecurity_system_util() {
-    Set&lt;String&gt; valid = ImmutableSortedSet.of(
-      "com.pulseenergy.core", "com.pulseenergy.spring.security",
-      "com.pulseenergy.system", "com.pulseenergy.util");
-    Set&lt;String&gt; invalid = ImmutableSortedSet.of("com.pulseenergy.web.filter"); // invalid dep
-    assertThat(findInternalDependencies("com.pulseenergy.security"),
-      is(ImmutableSortedSet.of(valid, invalid)));
-  }
-						</code>
-					</pre>
-					</section>
-					<section>
-						<h2>Test Writing Process</h2>
-						<ol>
-							<li>Write a failing test to capture the existing dependencies (Red bar)</li>
-							<li>Assert all existing dependencies (Green bar)</li>
-							<li>Split dependencies into valid and invalid sets</li>
-							<li>Remove one invalid dependencies from the set (Red bar)</li>
-							<li>Break that dependencies in the code (Green bar)</li>
-							<li>Lather (commit) and repeat</li>
-						</ol>
-					</section>
-					<section>
-						<h2>1. Capture the existing dependencies: foo &rarr; ???</h2>
-						<pre>
-							<code>
-  @Test
-  public void fooShouldDependOnX() {
-    assertThat(findInternalDependencies("com.pulseenergy.foo"),
-    	is(Collections.emptySet()));
-  }
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h2>2. assert existing dependencies (green bar)</h2>
-						<pre>
-							<code>
-  @Test
-  public void fooShouldDependOnX() {
-    assertThat(findInternalDependencies("com.pulseenergy.foo"),
-    	is(ImmutableSortedSet.of("com.pulseenergy.bar", "com.pulseenergy.baz")));
-  }
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h2>3. split into valid/invalid sets (green bar)</h2>
-						<pre>
-							<code>
-  @Test
-  public void fooShouldDependOnBar() {
-    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.bar");
-    Set&lt;String&gt; invalid = ImmutableSortedSet.of("com.pulseenergy.baz");
-    assertThat(findInternalDependencies("com.pulseenergy.foo"),
-    	is(Iterables.concat(valid, invalid)));
-  }
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h2>4. remove invalid dependency from test (red bar)</h2>
-						<pre>
-							<code>
-  @Test
-  public void fooShouldDependOnBar() {
-    Set&lt;String&gt; valid = ImmutableSortedSet.of("com.pulseenergy.bar");
-    assertThat(findInternalDependencies("com.pulseenergy.foo"), is(valid));
-  }
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h2>5. remove invalid dependency from code (green bar)</h2>
-						<img src="img/space-arm.jpg" height="400px" />
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Breaking dependencies can take a long time</h2>
-						<img src="img/astronauts.jpg" height="350px" />
-						<h3>Commit tests with invalid dependencies listed</h3>
-					</section>
-					<section>
-						<h2>Run these tests in your build</h2>
-						<img src="img/HAL.jpg" height="400px">
-						<h3>You broke the build, Dave &#9608;</h3>
-					</section>
-					<section>
-						<h2>When package is suitably decoupled, service-ify!</h2>
-						<img src="img/baby.jpg">
-					</section>
-				</section>
 				<section>
 					<section>
 						<h2>Thanks!</h2>
 						<img src="img/baby.jpg">
-						<p><a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a></p>
+						<p>
+							<a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a>
+							<br/>
+							<a href="mailto:nicwaller@gmail.com">nicwaller@gmail.com</a> | <a href="http://twitter.com/nic_waller">@nic_waller</a>
+						</p>
 					</section>
-					<section>
-						<img src="img/2001-poster.jpg" />
-						<h3>For serious geeks only</h3>
-					</section>
-
-					<section>
-						<h2>Under the hood</h2>
-						<pre><code>
-private Collection&lt;JavaPackage&gt; analyzePackage(String targetPackage) throws IOException {
-	final JDepend jDepend = new JDepend();
-	jDepend.addDirectory(IntrospectionHelper.findClassesDirectory().getAbsolutePath()
-		 + "/" + convertPackageToPath(targetPackage));
-	@SuppressWarnings("unchecked")
-	final Collection&lt;JavaPackage&gt; allPackages = jDepend.analyze();
-	final List&lt;JavaPackage&gt; filteredPackages = Lists.newArrayList();
-	for (JavaPackage aPackage : allPackages) {
-		if (aPackage.getName().startsWith(targetPackage)) {
-			filteredPackages.add(aPackage);
-		}
-	}
-	return filteredPackages;
-}
-						</code></pre>
-					</section>
-					<section>
-						<h2>Under the hood</h2>
-						<pre><code>
-private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
-	final Set&lt;String&gt; packageViolations = Sets.newTreeSet();
-	@SuppressWarnings("unchecked")
-	Collection&lt;JavaPackage&gt; efferents = javaPackage.getEfferents();
-	for (JavaPackage efferentPackage : efferents) {
-		if (isInternalDependency(efferentPackage)) {
-			packageViolations.add(efferentPackage.getName());
-		}
-	}
-	return packageViolations;
-}
-						</code></pre>
-					</section>
-
 				</section>
-
 			</div>
 		</div>
 
