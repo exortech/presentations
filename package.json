@@ -2,13 +2,16 @@
   "name": "Exortech_Presentations",
   "version": "0.0.2",
   "private": true,
-  "keywords": ["presentation", "reveal.js"],
+  "keywords": [
+    "presentation",
+    "reveal.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/exortech/presentations.git"
   },
   "dependencies": {
-    "reveal.js": "^3.2.0"
+    "reveal.js": "4.1.3"
   },
   "scripts": {
     "postinstall": "cp -r ./node_modules/reveal.js/js/ lib/reveal.js/js & cp -r ./node_modules/reveal.js/css/ lib/reveal.js/css & cp -r ./node_modules/reveal.js/lib/ lib/reveal.js/lib & cp -r ./node_modules/reveal.js/plugin/ lib/reveal.js/plugin"

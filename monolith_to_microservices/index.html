@@ -14,14 +14,11 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../lib/reveal.js/css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="../lib/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/dist/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
 		<style>
 			.reveal section img { border: none; background-color: black; }
 		</style>
@@ -33,14 +30,13 @@
 			<div class="slides">
 
 				<section data-state="title-slide">
-					<h1>From Monolith To Microservices</h1>
+					<h2>From Monolith To Microservices</h2>
 					<h3>Agile In The Cloud 2016</h3>
 					<p>
 						<small><a href="http://exortech.com/">Owen Rogers</a> - <a href="http://twitter.com/exortech">@exortech</a></small>
 						<br/>
 						<small><a href="">Nic Waller</a> - <a href="http://twitter.com/nic_waller">@nic_waller</a></small>
 					</p>
-					<p><a href="http://www.exortech.com/presentations/monolith_to_microservices/">http://www.exortech.com/presentations/monolith_to_microservices/</a></p>
 				</section>
 
 				<section>
@@ -48,14 +44,13 @@
 						<h2>Hi!</h2>
 					</section>
 					<section data-state="intro-slide">
-						<img src="../common/img/owen-faro.jpg" />
+						<img src="../common/img/owen-faro.jpg" class="r-stretch" />
 						<p><a href="http://exortech.com/blog">Owen Rogers</a> / <a href="http://twitter.com/exortech">@exortech</a></p>
-						<p>Lead Consultant @ <a href="http://www.exortech.com">Exortech Consulting</a>
-						<p>(formerly) Product Owner / Solutions Architect @ <a href="http://www.enernoc.com">EnerNOC</a>
-						<p>Founder @ <a href="http://www.carbonchoices.org">Carbon Choices</a>
+						<p>Lead Consultant @ <a href="http://www.exortech.com">Exortech Consulting</a></p>
+						<p>Product Owner / Solutions Architect @ <a href="http://www.enernoc.com">EnerNOC</a></p>
 					</section>
 					<section data-state="intro-slide">
-						<img src="img/NicCimos2011-profile.jpg" />
+						<img src="img/NicCimos2011-profile.jpg" class="r-stretch" />
 						<p><a href="http://exortech.com/blog">Nic Waller</a> / <a href="http://twitter.com/nic_waller">@nic_waller</a></p>
 						<p>Site Reliability Engineer @ <a href="http://www.enernoc.com">EnerNOC</a>
 					</section>
@@ -63,15 +58,15 @@
 				<section>
 					<section>
 						<h2>An 8-year Odyssey</h2>
-						<img src="img/2008-poster.jpg" />
+						<img src="img/2008-poster.jpg" class="r-stretch" />
 					</section>
 					<section>
 						<h2>mon·o·lith·ic</h2>
 						<p><em>characterized by massiveness, total uniformity, rigidity, invulnerability, etc.</em></p>
 					</section>
 					<section>
-						<h2>The Unintended Monolith</h2>
-						<img src="img/2001-monolith.png" />
+						<h2 class="r-fit-text">The Unintended Monolith</h2>
+						<img src="img/2001-monolith.png" class="r-stretch" />
 					</section>
 					<section>
 						<h2>Monolithic Pain</h2>
@@ -90,11 +85,11 @@
 				<section>
 					<section>
 						<h2>Why did we end up with a monolith?</h2>
-						<img src="img/monolith-sun.jpg" height="400px" />
+						<img src="img/monolith-sun.jpg" class="r-stretch" />
 					</section>
 					<section>
 						<h2>New and rapidly evolving system</h2>
-						<img src="img/apes-monolith.gif" />
+						<img src="img/apes-monolith.gif" class="r-stretch" />
 					</section>
 					<section>
 						<h2>Make HAL do something else</h2>
@@ -104,7 +99,7 @@ function askHAL(action) {
 	if (isStatusCheck(action) {
 		return "Affirmative, Dave.";
 	} else if (isTimeToLeave(action)) {
-		return "It is dangerous to remain here. You must leave within two days.";
+		return "It is dangerous to remain here.";
 	}
 	return "I'm sorry, Dave. I'm afraid I can't do that.";
 }
@@ -113,12 +108,12 @@ function askHAL(action) {
 					</section>
 					<section>
 						<h2>Canalizing Design</h2>
-						<img src="img/aquaduct.jpg" height="400px" />
+						<img src="img/aquaduct.jpg" class="r-stretch" />
 						<p><small><a href="http://michaelfeathers.typepad.com/michael_feathers_blog/2009/06/canalizing-design.html">http://michaelfeathers.typepad.com/michael_feathers_blog/2009/06/canalizing-design.html</a></small></p>
 					</section>
 					<section>
-						<h2>Path of least resistance</h2>
-						<img src="img/path_of_least_resistance.jpg" height="500px" />
+						<h2 class="r-fit-text">Path of least resistance</h2>
+						<img src="img/path_of_least_resistance.jpg" class="r-stretch" />
 					</section>
 					<section>
 						<h2>ac·crete</h2>
@@ -129,7 +124,7 @@ function askHAL(action) {
 					</section>
 					<section>
 						<h2>Big Ball Of Mud</h2>
-						<img src="img/DungBeetle-on-dung.JPG" />
+						<img src="img/DungBeetle-on-dung.JPG" class="r-stretch" />
 						<p><a href="http://www.laputan.org/mud/">http://www.laputan.org/mud/</a>
 					</section>
 					<section>
@@ -163,12 +158,12 @@ function askHAL(action) {
 
 				<section>
 					<section>
-						<h2>What's the alternative?</h2>
-						<img src="img/2001-space-odyssey-monolith.jpg" height="400px" />
+						<h2 class="r-fit-text">What's the alternative?</h2>
+						<img src="img/2001-space-odyssey-monolith.jpg" class="r-stretch" />
 					</section>
 					<section>
 						<h2>Alternative #1: Split the monolith</h2>
-						<img src="img/dave.jpg" height="400px" />
+						<img src="img/dave.jpg" class="r-stretch" />
 						<h3>But how?</h3>
 					</section>
 					<section>
@@ -182,33 +177,33 @@ function askHAL(action) {
 					</section>
 					<section>
 						<h2>Not so fast, Dave</h2>
-						<img src="img/HAL.jpg" height="400px" />
+						<img src="img/HAL.jpg" class="r-stretch" />
 					</section>
 					<section>
 						<h2>Alien goo</h2>
-						<img src="img/alien-goo.jpg" />
+						<img src="img/alien-goo.jpg" class="r-stretch" />
 					</section>
 
 					<section>
-						<h2>Test-driven decoupling</h2>
-						<img src="img/ship.jpg" height="400px" />
+						<h2 class="r-fit-text">Test-driven decoupling</h2>
+						<img src="img/ship.jpg" class="r-stretch" />
 						<p>Using tests to enforce package structure and drive decoupling effort</p>
 					</section>
 
 					<section>
 						<h2>Alternative #2: Write new service</h2>
-						<img src="img/dave.jpg" height="400px" />
+						<img src="img/dave.jpg" class="r-stretch" />
 					</section>
 
 					<section>
 						<h2>Strangler application</h2>
-						<img src="img/face-sucker-free-hugs.jpg" height="400px" />
+						<img src="img/face-sucker-free-hugs.jpg" class="r-stretch" />
 						<p><a href="http://www.martinfowler.com/bliki/StranglerApplication.html">http://www.martinfowler.com/bliki/StranglerApplication.html</a></p>
 					</section>
 
 					<section>
 						<h2>Hub and spokes</h2>
-						<img src="img/2001-space-station.jpg" height="400px" />
+						<img src="img/2001-space-station.jpg" class="r-stretch" />
 					</section>
 				</section>
 
@@ -221,7 +216,7 @@ function askHAL(action) {
 					</section>
 
 					<section>
-						<img src="img/building_microservices_book.jpg" height="400px" />
+						<img src="img/building_microservices_book.jpg" class="r-stretch" />
 						<h2>A bit of guidance</h2>
 					</section>
 
@@ -248,25 +243,25 @@ function askHAL(action) {
 
 					<section>
 						<h2>The Dark Side of Polyglot</h2>
-						<img src="img/Dark_Side_of_the_Moon.png" height="300px" />
+						<img src="img/Dark_Side_of_the_Moon.png" class="r-stretch" />
 					</section>
 
 					<section>
 						<h2>Design</h2>
-						<img src="img/domain-driven-design.jpg" height="300px" />
+						<img src="img/domain-driven-design.jpg" class="r-stretch" />
 						<p>Align service boundaries to bounded contexts / value streams</p>
 					</section>
 
 					<section>
 						<h2>Design</h2>
-						<img src="img/corridor-from-2001-a-space-odyssey.jpg" height="300px" />
+						<img src="img/corridor-from-2001-a-space-odyssey.jpg" class="r-stretch" />
 						<p>Share nothing architecture</p>
 						<p>Mono-repo vs repo-per-service</p>
 					</section>
 
 					<section>
 						<h2>Integration</h2>
-						<img src="img/docking-scene.jpg" height="300px" />
+						<img src="img/docking-scene.jpg" class="r-stretch" />
 						<p>Default to HTTP RESTful endpoints</p>
 						<p>Safety through isolation / compartmentalization</p>
 					</section>
@@ -315,7 +310,7 @@ function askHAL(action) {
 
 				<section>
 					<section>
-						<h2>Pitfalls of microservices</h2>
+						<h2 class="r-fit-text">Pitfalls of microservices</h2>
 						<ul>
 							<li>Danger of distributed monolith</li>
 							<li>More builds, more deploys</li>
@@ -339,7 +334,7 @@ function askHAL(action) {
 				<section>
 					<section>
 						<h2>Thanks!</h2>
-						<img src="img/baby.jpg">
+						<img src="img/baby.jpg" class="r-stretch">
 						<p>
 							<a href="mailto:owen@exortech.com">owen@exortech.com</a> | <a href="http://twitter.com/exortech">@exortech</a>
 							<br/>
@@ -350,16 +345,14 @@ function askHAL(action) {
 			</div>
 		</div>
 
-		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
-		<script src="../lib/reveal.js/js/reveal.js"></script>
-
+		<script src="../lib/reveal.js/dist/reveal.js"></script>
 		<script>
 			Reveal.initialize({
 				transition: 'fade',
-			    dependencies: [
-			    //     // Syntax highlight for <code> elements
-        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-    			]
+				dependencies: [
+					//     // Syntax highlight for <code> elements
+					{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
 			});
 		</script>
 
