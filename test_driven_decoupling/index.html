@@ -14,14 +14,12 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../lib/reveal.js/css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="../lib/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/dist/theme/night.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
+		<link rel="stylesheet" href="../lib/reveal.js/plugin/highlight/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
 		<style>
 			.reveal section img { border: none; background-color: black; }
 		</style>
@@ -539,16 +537,13 @@ private Set&lt;String&gt; findInvalidDependencies(JavaPackage javaPackage) {
 			</div>
 		</div>
 
-		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
+		<script src="../lib/reveal.js/plugin/highlight/highlight.js"></script>
 		<script src="../lib/reveal.js/js/reveal.js"></script>
 
 		<script>
 			Reveal.initialize({
 				transition: 'fade',
-			    dependencies: [
-			    //     // Syntax highlight for <code> elements
-        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-    			]
+				plugins: [ RevealHighlight ]
 			});
 		</script>
 
