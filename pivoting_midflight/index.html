@@ -14,21 +14,8 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../lib/reveal.js/css/theme/sky.css" id="theme">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<link rel="stylesheet" href="../lib/reveal.js/css/print/pdf.css" type="text/css" media="print">'
-<!--		<script>
-			document.write( '<link rel="stylesheet" href="../lib/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
--->
-		<!--[if lt IE 9]>
-		<script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
-		<![endif]-->
+		<link rel="stylesheet" href="../lib/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../lib/reveal.js/dist/theme/sky.css" id="theme">
 
 		<style>
 			.reveal section img { border: none; background-color: white; }
@@ -562,16 +549,11 @@
 			</div>
 		</div>
 
-		<script src="../lib/reveal.js/lib/js/head.min.js"></script>
 		<script src="../lib/reveal.js/js/reveal.js"></script>
 
 		<script>
 			Reveal.initialize({
-				transition: 'fade',
-			    dependencies: [
-			    //     // Syntax highlight for <code> elements
-        			{ src: '../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-    			]
+				transition: 'fade'
 			});
 		</script>
 
